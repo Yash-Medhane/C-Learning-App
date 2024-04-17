@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration Form</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style/register.css">
+</head>
+<body>
+
+<form action="" class="register-form" method="post" enctype="multipart/form-data">
+    <h1 class="register-title">Register</h1>
+    <div class="input-box">
+        <i class="bx bxs-user"></i>
+        <input type="text" name="name" placeholder="Enter First name" required>
+    </div>
+    <div class="input-box">
+        <i class="bx bxs-lock-alt"></i>
+        <input type="email" name="email" placeholder="Enter email" required>
+    </div>
+    <div class="input-box">
+        <i class="bx bxs-lock-alt"></i>
+        <input type="text" name="mobno" placeholder="Enter mobile" required>
+    </div>
+        <div class="input-box">
+            <i class="bx bxs-lock-alt"></i>
+            <input type="number" name="age" placeholder="Enter age" required>
+        </div>
+        <div class="input-box" id="gender">
+            <label for="gender"></label>
+            <div class="gender-options">
+                <input type="radio" id="male" name="gender" value="1" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="2" required>
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="3" required>
+                <label for="other">Other</label>
+            </div>
+        </div>
+    <div class="input-box">
+        <i class="bx bxs-lock-alt"></i>
+        <input type="password" name="password" placeholder="Enter password" required>
+    </div>
+    <button type="submit" class="register-btn" value="Register">Register</button>
+
+    <p class="login">
+        Already have an account?
+        <a href="/login" id="log">Login</a>
+    </p>
+    <% if (typeof message !== 'undefined') { %>
+        <p style="color: green;"><%= message %></p>
+    <% } %>
+</form>
+</body>
+</html>

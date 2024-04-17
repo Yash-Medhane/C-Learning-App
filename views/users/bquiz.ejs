@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Awesome Quiz App | CodingNepal</title> -->
+    <link rel="stylesheet" href="style/quiz.css">
+    <!-- FontAweome CDN Link for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <!-- start Quiz button -->
+    <div class="start_btn"><button>Start Quiz</button></div>
+
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+
+    <!-- Quiz Box -->
+        <div class="quiz_box">
+            <header>
+                <div class="title"></div>
+                <div class="difficulty"></div>
+            </header>
+            <section>
+                <div class="que_text">
+                    <!-- Here I've inserted question from JavaScript -->
+                </div>
+                <div class="option_list">
+                    <!-- Here I've inserted options from JavaScript -->
+                </div>
+            </section>
+    
+            <!-- footer of Quiz Box -->
+            <footer>
+                <div class="hint">
+                    <img class="hint-btn" src="assets/hint.png" alt="hint">
+                    <p>Hint</p>
+                </div>
+                
+                <div class="total_que">
+                    <!-- Here I've inserted Question Count Number from JavaScript -->
+                </div>
+                <button class="next_btn">Next Que</button>
+            </footer>
+        </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text1">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="score_text2">
+             <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="resbtn">Replay Quiz</button>
+            <button class="next_quiz">Next</button>
+        </div>
+    </div>
+    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+    <script src="script/quiz.js"></script>
+    <script src="script/confetti.js"></script>
+</body>
+</html>

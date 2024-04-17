@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 1</title>
+ <link rel="stylesheet" href="style/unit1.css">
+</head>
+<body>
+    <header>
+        <h1>Section 1</h1>
+        <div class="msg">
+              hiii      
+        </div>
+    </header>
+    <div class="container">
+        <div class="levels-wrapper">
+            <section class="level-section lesson1">
+                <h2>Level 1</h2>
+                <div class="quiz">
+                    <img src="assets/l1.png" alt="lesson1">
+                </div>
+                <button class="learn-btn">Learn</button>
+            </section>
+            <div class="sub1">
+                <button id="quiz1">1</button>
+                <button id="quiz2">2</button>
+                <button id="quiz3">3</button>
+            </div>
+            <section class="level-section lesson2">
+                <h2>Level 2</h2>
+                <div class="sub1">
+                    <img src="assets/number-1.png" alt="level-1">
+                    <img src="assets/number-2.png" alt="level-2">
+                </div>
+                <div class="sub2">
+                    <img src="assets/number-3.png" alt="level-3">
+                    <img src="assets/assignment.png" alt="assignment">
+                </div>
+                <div class="quiz">
+                    <img src="assets/l1.png" alt="lesson2">
+                </div>
+                <button class="learn-btn">Learn</button>
+            </section>
+            <section class="level-section lesson2">
+                <h2>Level 3</h2>
+                <div class="sub1">
+                    <img src="assets/number-1.png" alt="level-1">
+                    <img src="assets/number-2.png" alt="level-2">
+                </div>
+                <div class="sub2">
+                    <img src="assets/number-3.png" alt="level-3">
+                    <img src="assets/assignment.png" alt="assignment">
+                </div>
+                <div class="quiz">
+                    <img src="assets/l1.png" alt="lesson3">
+                </div>
+                <button class="learn-btn">Learn</button>
+            </section>
+            <section class="level-section lesson2">
+                <h2>Level 4</h2>
+                <div class="sub1">
+                    <img src="assets/number-1.png" alt="level-1">
+                    <img src="assets/number-2.png" alt="level-2">
+                </div>
+                <div class="sub2">
+                    <img src="assets/number-3.png" alt="level-3">
+                    <img src="assets/assignment.png" alt="assignment">
+                </div>
+                <div class="quiz">
+                    <img src="assets/l1.png" alt="lesson4">
+                </div>
+                <button class="learn-btn">Learn</button>
+            </section>
+            <section class="level-section lesson2">
+                <h2>Level 5</h2>
+                <div class="sub1">
+                    <img src="assets/number-1.png" alt="level-1">
+                    <img src="assets/number-2.png" alt="level-2">
+                </div>
+                <div class="sub2">
+                    <img src="assets/number-3.png" alt="level-3">
+                    <img src="assets/assignment.png" alt="assignment">
+                </div>
+                <div class="quiz">
+                    <img src="assets/l1.png" alt="lesson5">
+                </div>
+                <button class="learn-btn">Learn</button>
+            </section>
+            <section class="level-section lesson2">
+                <h2>Level 6</h2>
+                <div class="sub1">
+                    <img src="assets/number-1.png" alt="level-1">
+                    <img src="assets/number-2.png" alt="level-2">
+                </div>
+                <div class="sub2">
+                    <img src="assets/number-3.png" alt="level-3">
+                    <img src="assets/assignment.png" alt="assignment">
+                </div>
+                <div class="quiz">
+                    <img src="assets/l1.png" alt="lesson6">
+                </div>
+                <button class="learn-btn">Learn</button>
+            </section>
+        </div>
+    </div>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const quiz1Img = document.getElementById('quiz1');
+    const quiz2Img = document.getElementById('quiz2');
+    const quiz3Img = document.getElementById('quiz3');
+  
+    quiz1Img.addEventListener('click', () => redirectToQuiz(1));
+    quiz2Img.addEventListener('click', () => redirectToQuiz(2));
+    quiz3Img.addEventListener('click', () => redirectToQuiz(3));
+  
+    function redirectToQuiz(quizNumber) {
+      // Redirect to the quiz page with quizNumber and positionNumber in the URL
+      window.location.href = `/bquiz?quiz=${quizNumber}`;
+    }
+});
+
+    </script>
+</body>
+</html>
+
