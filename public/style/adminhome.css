@@ -1,0 +1,114 @@
+/* adminhome.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Set a background color */
+    min-height: 100vh; /* Ensure the body covers the entire viewport height */
+}
+
+/* Centering the header */
+.head {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #3f51b5; /* Purple background color */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.head h1 {
+    color: #fff; /* White text color */
+}
+
+.head a {
+    color: #fff; /* White text color for links */
+    text-decoration: none; /* Remove underline from links */
+    border: 1px solid #fff; /* White border */
+    padding: 10px 20px; /* Padding for button */
+    border-radius: 5px; /* Button border radius */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.head a:hover {
+    background-color: #fff; /* White background on hover */
+    color: #3f51b5; /* Purple text color on hover */
+}
+
+/* Styling user blocks as cards */
+.user-block {
+    background-color: #fff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 30px;
+    width: calc(33.33% - 40px); /* 3 cards per row */
+    display: inline-block;
+    position: relative;
+    left: 13%;
+    vertical-align: top;
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-block:hover {
+    transform: translateY(-5px);
+}
+
+.user-block h2 {
+    color: #333;
+    font-size: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    right: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;
+    bottom: 10px;
+}
+
+.user-block p {
+    color: #666;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.user-block img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    align-items: center;
+}
+.user-block > .head-user{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.user-block > .info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.user-block > .info-1{
+    text-align: center;
+}
+
+.info p strong {
+    color: #333; /* Set color of the strong text */
+}
+/* Clearing the float to start new row */
+.user-block:nth-child(3n + 1) {
+    clear: both;
+}
+
+/* Responsive styling */
+@media only screen and (max-width: 768px) {
+    .user-block {
+        width: calc(50% - 20px); /* 2 cards per row on smaller screens */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .user-block {
+        width: 100%; /* 1 card per row on even smaller screens */
+    }
+}

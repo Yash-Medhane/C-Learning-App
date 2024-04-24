@@ -1,0 +1,110 @@
+
+
+.shop-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    top: 87vmin;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.buy-button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buy-button:hover{
+    background-color: #28632a;
+    cursor: pointer;
+}
+.footer {
+    position: relative;
+    top:90vmin;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  .company-info,
+  .contact-info,
+  .social-media {
+    margin-right: 20px;
+
+  }
+  
+  .company-info h3,
+  .contact-info h3,
+  .social-media h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+    color: #db6868;
+  }
+  
+  .company-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .company-info ul li {
+    margin-bottom: 5px;
+  }
+  
+  .contact-info p {
+    margin-bottom: 10px;
+  }
+  
+  .social-media ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .social-media ul li {
+    margin-bottom: 5px;
+  }
+  
+  .social-media ul li i {
+    margin-right: 5px;
+  }
+  
+  .social-media ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .social-media ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .copyright {
+    text-align: center;
+    margin-top: 20px;
+  }

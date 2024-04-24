@@ -51,5 +51,8 @@ user_route.get('/position',userController.position);
 user_route.post('/updatePosition',userController.updatePosition);
 user_route.get('/cash',userController.cash);
 user_route.post('/updateCash',userController.updateCash);
+user_route.post('/updateDiamond',userController.updateDiamond);
 user_route.post('/updateLevel',userController.updateLevel);
+user_route.post('/updateQuiz',userController.updateQuiz);
+user_route.get('/fetchQuizValue/:quizName',userController.getQuizValue);
 module.exports = user_route;

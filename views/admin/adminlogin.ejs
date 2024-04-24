@@ -1,19 +1,20 @@
 <% include('../layouts/header.ejs') %>
+<link rel="stylesheet" href="style/adminlogin.css">
+<div class="login-container">
+    <h1>Admin Login</h1>
 
-<h1>Admin Login</h1>
-
-
-
-<form action="" method="post">
-    <% if (typeof message !== 'undefined') { %>
-        <p style="color: green;"><%= message %></p>
-    <% } %>
-    <input type="email" name="email" placeholder="Enter email" required>
-    <br><br>
-    <input type="password" name="password" placeholder="Enter password" required>
-    <br><br>
-    <input type="submit" value="Login">
-
-</form>
+    <form action="" method="post" class="login-form">
+        <% if (typeof message !== 'undefined') { %>
+            <p class="message" style="color: red;"><%= message %></p>
+        <% } %>
+        <div class="input-group">
+            <input type="email" name="email" placeholder="Enter email" required>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn-login">Login</button>
+    </form>
+</div>
 
 <% include('../layouts/footer.ejs') %>

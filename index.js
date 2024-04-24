@@ -29,7 +29,9 @@ app.use("/adminlogin", adminRoute);
 // Mount question routes
 const questionRoutes = require("./routes/questionRoutes");
 app.use("/", questionRoutes);
+
 app.use('/quiz',questionRoutes);
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

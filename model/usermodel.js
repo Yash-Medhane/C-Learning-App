@@ -49,7 +49,7 @@ const UserSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    medal: {
+    diamond: {
         type: Number,
         required: true
     },
@@ -70,5 +70,8 @@ const UserSchema = mongoose.Schema({
         required: true
     }
 });
+
+
+
 
 module.exports = mongoose.model("loginuser",UserSchema);

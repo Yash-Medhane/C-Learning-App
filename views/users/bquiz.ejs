@@ -11,7 +11,9 @@
 </head>
 <body>
     <!-- start Quiz button -->
-    <div class="start_btn"><button>Start Quiz</button></div>
+    <div class="home-cont">
+        <div class="start_btn"><button id="button1">Start Quiz</button></div>
+    </div>
 
     <!-- Info Box -->
     <div class="info_box">
@@ -20,12 +22,16 @@
             <button class="restart">Continue</button>
         </div>
     </div>
+    
 
     <!-- Quiz Box -->
         <div class="quiz_box">
             <header>
-                <div class="title"></div>
-                <div class="difficulty"></div>
+                 <div class="title"></div>
+                <div class="quiz-header">
+                    <span class="difficulty"></span>
+                    <span class="header-score"></span>
+                </div>
             </header>
             <section>
                 <div class="que_text">
@@ -35,41 +41,45 @@
                     <!-- Here I've inserted options from JavaScript -->
                 </div>
             </section>
-    
             <!-- footer of Quiz Box -->
             <footer>
-                <div class="hint">
-                    <img class="hint-btn" src="assets/hint.png" alt="hint">
-                    <p>Hint</p>
-                </div>
-                
+                <button class="hint_btn">Hint <img src="assets/hint.png" alt=".."></button>
                 <div class="total_que">
-                    <!-- Here I've inserted Question Count Number from JavaScript -->
+                    <!-- Here I've inserted question from JavaScript -->
                 </div>
                 <button class="next_btn">Next Que</button>
             </footer>
         </div>
 
+        
+
     <!-- Result Box -->
     <div class="result_box">
-        <div class="icon">
-            <i class="fas fa-crown"></i>
-        </div>
-        <div class="complete_text">You've completed the Quiz!</div>
-        <div class="score_text1">
-            <!-- Here I've inserted Score Result from JavaScript -->
-        </div>
-        <div class="score_text">
-            <!-- Here I've inserted Score Result from JavaScript -->
-        </div>
-        <div class="score_text2">
-             <!-- Here I've inserted Score Result from JavaScript -->
+        <h2>Quiz Result</h2>
+        <div class="percentage-container">
+            <div class="score_text">
+                <!-- Score Result will be inserted here -->
+            </div>
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+            <div class="score_text3">
+                <!-- Score Result will be inserted here -->
+            </div>
+            <div class="score_text1">
+                <!-- Score Result will be inserted here -->
+            </div>
+            <div class="score_text2">
+                <!-- Score Result will be inserted here -->
+            </div>
         </div>
         <div class="buttons">
             <button class="resbtn">Replay Quiz</button>
             <button class="next_quiz">Next</button>
         </div>
     </div>
+       
+
     <!-- Inside this JavaScript file I've coded all Quiz Codes -->
     <script src="script/quiz.js"></script>
     <script src="script/confetti.js"></script>

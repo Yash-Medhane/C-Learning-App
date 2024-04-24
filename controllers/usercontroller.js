@@ -1,4 +1,5 @@
 const users = require("../model/usermodel");
+const stars = require("../model/starmodel");
 const { Quiz2 } = require("../model/questionModel");
 const multer = require("multer");
 const bcrypt = require("bcrypt");
@@ -63,15 +64,28 @@ const insertUser = async (req, res) => {
             age: req.body.age,
             level: "Beginner",
             badge: "bronze",
-            star:0,
-            medal:0,
-            trophy:0,
-            position:1,
-            cash:0,
-            hints:0,
+            star: 0,
+            diamond: 0,
+            trophy: 0,
+            position: 1,
+            cash: 0,
+            hints: 0,
             is_admin: 0
         });
 
+        
+
+        const quizzes = [];
+        for (let i = 1; i <= 76; i++) {
+            quizzes.push(0);
+        }
+
+        const star = new stars({
+            email: req.body.email,
+            quizzes: quizzes // Provide values for quizzes 1 through 75
+        });
+        
+        const starData = await star.save();
         const userData = await user.save();
 
         if (userData) {
@@ -84,6 +98,7 @@ const insertUser = async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 }
+
 
 
 const loginload = async(req,res)=>{
@@ -161,6 +176,113 @@ const updateButton =  async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+const updateQuiz = async (req,res) => {
+    try {
+        const userId = req.session.user_id;
+        
+        // Retrieve user's email from the users collection
+        const user = await users.findById(userId, 'email');
+        const email = user.email;
+
+        const quizNum = req.body.quizNum; // Get the new level value from the request body
+        const starNum = req.body.starNum;
+
+        // Find the star document by email
+        const star = await stars.findOne({ email: email });
+
+        if (!star) {
+            // Handle case where star document is not found
+            console.log("Star document not found for user:", email);
+            return;
+        }
+
+        // Update the value of the specified quiz
+        star.quizzes[quizNum] = starNum;
+
+        // Save the updated star document
+        const updatedStar = await star.save();
+
+        console.log("Quiz updated successfully for user:", email);
+
+        // Call the updateAndFetchQuizTotal function
+        await updateAndFetchQuizTotal(req,res); // Assuming updateAndFetchQuizTotal is the name of your function
+    } catch (error) {
+        // Move the logging of the error here, where the email variable is accessible
+        console.error("Error updating quiz for user:",error);
+    }
+}
+
+
+
+const updateAndFetchQuizTotal = async (req, res) => {
+    try {
+        const userId = req.session.user_id;
+        
+        // Retrieve user's email from the users collection
+        const user = await users.findById(userId, 'email');
+        const email = user.email;
+
+        // Find the star document by email
+        const star = await stars.findOne({ email: email });
+
+        if (!star) {
+            // Handle case where star document is not found
+            console.log("Star document not found for user:", email);
+            return res.status(404).json({ success: false, error: 'Star document not found' });
+        }
+
+        // Calculate the total of all quiz values
+        let quizTotal = 0;
+        for (let i = 0; i < 74; i++) {
+            quizTotal += star.quizzes[i];
+        }
+
+        console.log("Total quiz value:", quizTotal);
+
+        // Update the 'star' field in the user document with the calculated total quiz value
+        const updatedUser = await users.findByIdAndUpdate(userId, { star: quizTotal }, { new: true });
+
+        // Send the updated total quiz value to the client-side JavaScript
+        res.status(200).json({ success: true, quizTotal, updatedUser });
+    } catch (error) {
+        console.error("Error updating and fetching total quiz value:", error);
+        res.status(500).json({ success: false, error: 'Internal Server Error' });
+    }
+}
+
+const getQuizValue = async (req, res) => {
+    try {
+        const quizName = req.params.quizName;
+        const userId = req.session.user_id;
+        
+        // Retrieve user's email from the users collection
+        const user = await users.findById(userId, 'email');
+        const userEmail = user.email;
+
+        // Find the star document in the database based on the user's email
+        const star = await stars.findOne({ email: userEmail });
+
+        if (!star) {
+            // Handle case where star document is not found
+            return res.status(404).json({ success: false, error: 'Star document not found' });
+        }
+
+        // Retrieve the quiz value for the specified quiz name
+        // Modify this logic based on how quiz names are stored and retrieved in your application
+        // For example, if quiz names are stored in a separate array or object, you need to look up the quiz name in that array or object to get the corresponding quiz value
+       
+        const quizValue = star.quizzes[quizName];
+
+        // Send the quiz value back to the client
+        res.status(200).json({ success: true, quizValue });
+    } catch (error) {
+        console.error('Error fetching quiz value:', error);
+        res.status(500).json({ success: false, error: 'Internal Server Error' });
+    }
+}
+
+
+
 const position = async (req, res) => {
     try {
       const userId = req.session.user_id; // Assuming user_id is the ID of the logged-in user
@@ -177,6 +299,7 @@ const position = async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   };
+
  
   const updatePosition = async (req, res) => {
     try {
@@ -239,6 +362,34 @@ const cash = async (req, res) => {
     }
 };
 
+const updateDiamond = async (req, res) => {
+    try {
+        const userId = req.session.user_id; // Assuming user_id is the ID of the logged-in user
+        const user = await users.findById(userId, 'diamond');
+        
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const newDiamond = req.body.newDiamond;
+        let availableDiamond = user.diamond;
+        availableDiamond += newDiamond; // Update the available cash by adding the new cash
+        
+        // Update the user's cash in the database
+        const updatedUser = await users.findByIdAndUpdate(userId, { diamond: availableDiamond }, { new: true });
+
+        if (!updatedUser) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Respond with the updated user object
+        res.json(updatedUser);
+    } catch (err) {
+        console.error('Error updating cash data', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 const updateLevel = async (req, res) => {
     try {
         const userId = req.session.user_id; // Assuming user_id is the ID of the logged-in user
@@ -261,6 +412,10 @@ const updateLevel = async (req, res) => {
         console.error('Error updating level data', err);
         res.status(500).send('Internal Server Error');
     }
+};
+
+const  buyHint  = async (req,res) =>{
+    
 };
 
 
@@ -288,5 +443,8 @@ module.exports = {
     cash,
     updateCash,
     updateLevel,
+    updateQuiz,
+    getQuizValue,
+    updateDiamond,
     upload // Exporting multer upload middleware for routes handling file uploads
 }

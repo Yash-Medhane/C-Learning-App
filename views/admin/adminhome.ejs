@@ -1,15 +1,50 @@
+<!-- adminhome.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/home.css">
-    <title>Home Page</title>
+    <link rel="stylesheet" href="style/adminhome.css">
+    <title>Admin Home Page</title>
 </head>
 <body>
-    <h1>Welcome, <%= admin.name %></h1>
-    <a href="/adminlogout">Logout</a>
+    <div class="head">
+        <h1>Welcome <%= admin.name %> to Admin Home Page</h1>
+    <a href="/logout">Logout</a>
+    </div>
+
+    <!-- Display all users' data in vertical blocks -->
+    <% users.forEach(user => { %>
+        <div class="user-block">
+           <div class="head-user">
+            <img src="<%= user.image %>" alt="User Image">
+            <h2><%= user.name %></h2>
+           </div>
+           <div class="info-1">
+            <p><strong>Email: </strong><%= user.email %></p>
+            <p><strong>Mobile: </strong><%= user.mobile %></p>
+        </div>
+        <div class="info">
+            <div class="left">
+                <p><strong>Level: </strong><%= user.level %></p>
+                <p><strong>Badge: </strong><%= user.badge %></p>
+                <p><strong>Is Admin: </strong><%= user.is_admin %></p>
+                <p><strong>Is Verified: </strong><%= user.is_verified %></p>
+                <p><strong>Gender: </strong><%= user.gender %></p>
+                <p><strong>Age: </strong><%= user.age %></p>
+            </div>
+            <div class="right">
+                <p><strong>Star: </strong><%= user.star %></p>
+                <p><strong>Medal: </strong><%= user.medal %></p>
+                <p><strong>Trophy: </strong><%= user.trophy %></p>
+                <p><strong>Position: </strong><%= user.position %></p>
+                <p><strong>Cash: </strong><%= user.cash %></p>
+                <p><strong>Hints: </strong><%= user.hints %></p>
+            </div>
+        </div>
+        
+        </div>
+        
+    <% }); %>
 </body>
 </html>
-<h1 class="text-center game-title animate__animated animate__bounce " id="c"><b>C </b></h1>
-<h1 class="text-center game-title animate__animated animate__backInRight " id="m"><b> Mastermind</b></h1>

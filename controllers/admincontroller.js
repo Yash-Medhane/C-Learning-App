@@ -26,7 +26,8 @@ const verifylogin = async (req, res) => {
                     res.render('adminlogin', { message: "Email and password are correct, but you are not an admin." });
                 } else {
                     req.session.user_id = userdata._id;
-                    res.render("adminhome"); // Redirect to adminhome instead of rendering adminhome directly
+
+                    res.redirect('adminhome');; // Redirect to adminhome instead of rendering adminhome directly
                 }
             } else {
                 res.render('adminlogin', { message: "Email or password is incorrect." });
@@ -44,8 +45,8 @@ const verifylogin = async (req, res) => {
 const loadhome = async (req,res) =>{
     try {
         const userData = await users.findById({ _id:req.session.user_id });
-
-        res.render('adminhome',{ admin:userData}); // Pass admin object to the adminhome view
+        const allUsersData = await users.find({});
+        res.render('adminhome', {users: allUsersData, admin:userData});
     } catch (error) {
         console.log(error.message);
         res.status(500).send("Internal Server Error");

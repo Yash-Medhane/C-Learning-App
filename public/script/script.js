@@ -31,36 +31,81 @@ spans.forEach((span) => {
     span.innerHTML = span.dataset.width;
 });
 
-
+document.getElementById('shop-btn').addEventListener('click', function() {
+  window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+  });
+});
 
 function toggleProfile() {
   var profileMenu = document.getElementById("profileMenu");
   var helpMenu = document.getElementById("helpMenu");
   var ruleMenu = document.getElementById("rulesMenu");
+  var shopMenu = document.getElementById("shopMenu");
+  var achievementsMenu = document.getElementById("achievementsMenu");
 
   profileMenu.classList.toggle("active");
   helpMenu.classList.remove("active");
   ruleMenu.classList.remove("active");
+  shopMenu.classList.remove("active");
+  achievementsMenu.classList.remove("active");
 }
 
-function togglehelp() {
+function toggleHelp() {
   var profileMenu = document.getElementById("profileMenu");
   var helpMenu = document.getElementById("helpMenu");
   var ruleMenu = document.getElementById("rulesMenu");
+  var shopMenu = document.getElementById("shopMenu");
+  var achievementsMenu = document.getElementById("achievementsMenu");
 
   helpMenu.classList.toggle("active");
   profileMenu.classList.remove("active");
   ruleMenu.classList.remove("active");
+  shopMenu.classList.remove("active");
+  achievementsMenu.classList.remove("active");
 }
 
-function togglerules() {
+function toggleRules() {
   var profileMenu = document.getElementById("profileMenu");
   var helpMenu = document.getElementById("helpMenu");
   var ruleMenu = document.getElementById("rulesMenu");
+  var shopMenu = document.getElementById("shopMenu");
+  var achievementsMenu = document.getElementById("achievementsMenu");
 
   ruleMenu.classList.toggle("active");
   profileMenu.classList.remove("active");
   helpMenu.classList.remove("active");
+  shopMenu.classList.remove("active");
+  achievementsMenu.classList.remove("active");
+}
+
+function toggleShop() {
+  var profileMenu = document.getElementById("profileMenu");
+  var helpMenu = document.getElementById("helpMenu");
+  var ruleMenu = document.getElementById("rulesMenu");
+  var shopMenu = document.getElementById("shopMenu");
+  var achievementsMenu = document.getElementById("achievementsMenu");
+
+  shopMenu.classList.toggle("active");
+  profileMenu.classList.remove("active");
+  helpMenu.classList.remove("active");
+  ruleMenu.classList.remove("active");
+  achievementsMenu.classList.remove("active");
+}
+
+function toggleAchievements() {
+  var profileMenu = document.getElementById("profileMenu");
+  var helpMenu = document.getElementById("helpMenu");
+  var ruleMenu = document.getElementById("rulesMenu");
+  var shopMenu = document.getElementById("shopMenu");
+  var achievementsMenu = document.getElementById("achievementsMenu");
+
+  achievementsMenu.classList.toggle("active");
+  profileMenu.classList.remove("active");
+  helpMenu.classList.remove("active");
+  ruleMenu.classList.remove("active");
+  shopMenu.classList.remove("active");
 }
 
 function LockedSection(){
