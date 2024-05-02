@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="style/styles.css">
 <link rel="stylesheet" type="text/css" href="style/footer.css">
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/build/player/lottie.min.js"></script>
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -86,28 +87,6 @@
         </div>
       </div>
 
-	  <div class="shop-menu" id="shopMenu">
-        <div class="shop-details">
-			<img src="assets/shop.png" alt="">
-				<h2>Shop</h2>
-				<div class="achievements-list">
-					<div class="cash">
-						<img src="assets/money.png" alt="">
-						<p><strong>Cash : </strong><%= user.cash %>$</p>
-					</div>
-					<div class="hints">
-						<img src="assets/hint.png" alt="">
-						<p><strong>Hints : </strong><%= user.hints %></p>
-					</div>
-					<div class="rate">
-						<p>1 Hint = 200$</p>
-					</div>
-				  </div>
-				</div>
-				<a href="/logout" class="buy-btn">Buy Hint 1</a >
-			  </div>
-        </div>
-      </div>
       <div class="profile-menu" id="profileMenu">
         <div class="profile-details">
 			<img src= <%= user.image %> alt="<%= user.image %>" class="profile-img">
@@ -167,13 +146,15 @@
 								<% } else if (user.position === 14) { %>
 									<span data-width="84%"></span>
 								<% } else if (user.position >= 15) { %>
-									<span data-width="90%"></span>
+									<span data-width="100%"></span>
 								<% } %>
 								
                             </div>
                           </div>
                         </div>
-                        <button class="btn">See Details</button>
+						<div class="anime" id="animation-container1">
+
+						</div>
 						<button onclick="window.location.href='/unit1'" class="btn">Continue</button>
                       </div>
 					<div class="slider-card  color2">
@@ -214,13 +195,15 @@
 								<% } else if (user.position - 15 === 14) { %>
 									<span data-width="84%"></span>
 								<% } else if (user.position - 15 >= 15) { %>
-									<span data-width="90%"></span>
+									<span data-width="100%"></span>
 								<% } %>
 								
 							  </div>
 							</div>
 						  </div>
-                        <button class="btn">See Details</button>
+						  <div class="anime" id="animation-container2">
+
+						  </div>
 						<% if (user.level === 'Beginner') { %>
 							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
 						<% } else { %>
@@ -266,13 +249,15 @@
 								<% } else if (user.position - 30 === 14) { %>
 									<span data-width="84%"></span>
 								<% } else if (user.position - 30 >= 15) { %>
-									<span data-width="90%"></span>
+									<span data-width="100%"></span>
 								<% } %>
 								
 							  </div>
 							</div>
 						  </div>
-						  <button class="btn">See Details</button>
+						  <div class="anime" id="animation-container3">
+
+						  </div>
 						  <% if (user.level === 'Apprentice' || user.level === 'Beginner') { %>
 							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
 						<% } else { %>
@@ -319,13 +304,15 @@
 								<% } else if (user.position - 45 === 14) { %>
 									<span data-width="84%"></span>
 								<% } else if (user.position - 45 >= 15) { %>
-									<span data-width="90%"></span>
+									<span data-width="100%"></span>
 								<% } %>
 								
 							  </div>
 							</div>
 						  </div>
-                        <button class="btn">See Details</button>
+						  <div class="anime" id="animation-container4">
+
+						  </div>
                         <% if ( user.level === 'Journeyman' || user.level === 'Apprentice' || user.level === 'Beginner') { %>
 							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
 						<% } else { %>
@@ -370,13 +357,15 @@
 								<% } else if (user.position - 60 === 14) { %>
 									<span data-width="84%"></span>
 								<% } else if (user.position - 60 >= 15) { %>
-									<span data-width="90%"></span>
+									<span data-width="100%"></span>
 								<% } %>
 								
 							  </div>
 							</div>
 						  </div>
-                        <button class="btn">See Details</button>
+						  <div class="anime" id="animation-container5">
+
+						  </div>
                         <% if (user.level === 'Veteran' || user.level === 'Journeyman' || user.level === 'Apprentice' || user.level === 'Beginner') { %>
 							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
 						<% } else { %>
@@ -387,59 +376,28 @@
 			</div>
   </div>
 </section> 
+
 <div class="shop-section">
     <div class="card">
-        <img src="assets/money.png" alt="Cash">
-        <h3><strong>Cash : </strong><%= user.cash %>$</h3>
-		<h3><strong>Hints : </strong><%= user.hints %></h3>
-        <button class="buy-button">Buy Cash</button>
+       <div class="images">
+		<img src="assets/money.png" alt="Cash">
+		<span>&#8594;</span>
+		<img  src="assets/hint.png"alt="hint">
+	   </div>
+        <p>1 Hint : 200 $</p>
+        <button class="buy-button" id="buy-1">Buy Hint</button>
     </div>
     <div class="card">
-        <img src="assets/diamond.png" alt="Diamond">
-        <h3><strong>Diamond : </strong><%= user.diamond %>$</h3>
-        <h3><strong>Hints : </strong><%= user.hints %></h3>
-        <button class="buy-button">Buy Cash</button>
-    </div>
-    <div class="card">
-        <img src="assets/diamond.png" alt="Diamond">
-        <h3><strong>Diamond : </strong><%= user.diamond %>$</h3>
-        <h3><strong>Hints : </strong><%= user.hints %></h3>
-        <button class="buy-button">Buy Cash</button>
-    </div>
-	<div class="card">
-        <img src="assets/diamond.png" alt="Diamond">
-        <h3><strong>Diamond : </strong><%= user.diamond %>$</h3>
-        <h3><strong>Hints : </strong><%= user.hints %></h3>
-        <button class="buy-button">Buy Cash</button>
+		<div class="images">
+			<img src="assets/diamond.png" alt="Cash">
+			<span>&#8594;</span>
+			<img  src="assets/hint.png"alt="hint">
+		   </div>
+		   <p>1 Hint : 5 Diamonds</p>
+        <button class="buy-button" id="buy-2">Buy Hint</button>
     </div>
 </div>
-<div class="footer">
-	<div class="footer-content">
-	  <div class="company-info">
-		<h3>About PizzaHub</h3>
-		<ul>
-		  <li>Mouth-watering pizzas delivered straight to your doorstep</li>
-		  <li>Passion for quality ingredients and unbeatable taste</li>
-		  <li>Serving pizza lovers since 2010</li>
-		</ul>
-	  </div>
-	  <div class="contact-info">
-		<h3>Contact Us</h3>
-		<p>Address: 123 Pizza Street, Pizza Town, Pizzaland</p>
-		<p>Phone: 555-1234-5678</p>
-		<p>Email: info@pizzahub.com</p>
-	  </div>
-	  <div class="social-media">
-		<h3>Connect Links</h3>
-		<ul>
-		  <li><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/pizzahub" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-		  <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/pizzahub" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-		  <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/pizzahub" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-		</ul>
-	  </div>
-	</div>
-	<p class="copyright">© 2024 The PizzaHub Company. All rights reserved.</p>
-  </div>
+
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script> 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>

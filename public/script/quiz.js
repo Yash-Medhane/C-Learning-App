@@ -125,10 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .then(data => {
                 const quizValue = data.quizValue;
-                console.log('Quiz value:', quizValue);
-                
-                // Perform the comparison within this scope
-                console.log("fetched executed");
                 if (quizValue < star) {
                     updateQuiz(quiz, star);
                 }
@@ -152,6 +148,22 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(error => console.error('Error updating diamond data:', error));
     }
+    function updateHints(newHints) {
+        fetch('/updateHints', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ newHints: newHints })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update hints data');
+                }
+                console.log(' Hints data updated successfully');
+            })
+            .catch(error => console.error('Error updating hints data:', error));
+    }
     
     
 
@@ -162,8 +174,49 @@ document.addEventListener("DOMContentLoaded", () => {
         titleDiv.textContent = title;
         difficultyDiv.textContent = difficulty;
     }
+ 
+   
+    function insertExplaination(explain) {
+        const explainationDiv = document.querySelector(".explanation");
+        explainationDiv.innerHTML = ''; // Clear any existing content
+        explainationDiv.style.display = 'block'; // Ensure the explanation div is visible
+    
+        // Typing effect
+        let index = 0;
+        const typingInterval = setInterval(function() {
+            explainationDiv.textContent += explain[index];
+            index++;
+            if (index === explain.length) {
+                clearInterval(typingInterval); // Stop typing when all characters are displayed
+            }
+        }, 50); // Typing speed: 50ms per character
+    }
+    function insertAnimation(path){
+        const container = document.getElementById('animation');
+        // Load the animation JSON file
+        const animationData = {
+            container: container,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: `animations/${path}.json` // Path to your JSON animation file
+        };
+        const anim = lottie.loadAnimation(animationData);
+    }
+    function clearAnimationContainer() {
+        const container = document.getElementById('animation');
+        container.innerHTML = ''; // Clear the container by removing its contents
+    }
+    
+    function clearExplanationContainer() {
+        const explainationDiv = document.querySelector(".explanation");
+        explainationDiv.innerHTML = ''; // Clear any existing content
+        explainationDiv.style.display = 'none';
+        
+    }
 
     function showQuestions(index) {
+        hintBtn.disabled = false;
         const queText = document.querySelector(".que_text");
         let queTag = '<span>' + questions[index].question + '</span>';
         let optionTag = shuffleOptions([...questions[index].options]).map(option =>
@@ -177,18 +230,93 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    const messageContainer = document.getElementById("messageContainer");
+
+// Function to display the message
+function displayMessage(message) {
+    // Create a new paragraph element
+    const messageElement = document.createElement("div");
+    // Set the class of the message element
+    messageElement.classList.add("message");
+    // Set the text content of the message element to the provided message
+    messageElement.textContent = message;
+    // Append the message element to the container
+    messageContainer.appendChild(messageElement);
+    
+    // Show the message element
+    messageElement.style.display = "block";
+
+    // Hide the message after 3 seconds
+    setTimeout(function() {
+        messageElement.style.display = "none";
+    }, 3000);
+}
+
+
+    const hintBtn = document.querySelector('.hint_btn'); // Assuming there's only one button with this class
+
+    hintBtn.addEventListener('click', function() {
+
+        fetch('/hint')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch hint data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let hints = data.hints;
+            if(hints != 0){
+                const correctIndex = parseInt(questions[que].answer);
+                const correctOption = optionList.children[correctIndex];
+                let wrongIndex;
+                do {
+                    wrongIndex = Math.floor(Math.random() * 4);
+                } while (wrongIndex === correctIndex);
+                const wrongOption = optionList.children[wrongIndex];
+                wrongOption.classList.add("hint");
+                correctOption.classList.add("hint");
+            
+                const allOptions = optionList.children.length;
+                for (let i = 0; i < allOptions; i++) {
+                    if (i !== wrongIndex && i !== correctIndex) {
+                        optionList.children[i].classList.add("disabled");
+                    }
+                }
+            
+                // Disable the hint button
+                hintBtn.disabled = true;
+                hints--;
+                updateHints(hints);
+               }
+               else{
+                displayMessage("Insufficient hints provided.");
+               }
+        })
+        .catch(error => console.error('Error fetching hint data:', error)); 
+    });
+    
+    
+
     function optionSelected(answer, index) {
         let userIndex = index;
         const correctIndex = parseInt(questions[que].answer);
         que++;
         if (userIndex === correctIndex) {
             userScore += 1;
+            answer.classList.remove("hint");
             answer.classList.add("correct");
             headerScore(userScore);
+            insertAnimation('right');
         } else {
+            const explaination = questions[que-1].explanation;
+            insertExplaination(explaination);
+            answer.classList.remove("hint");
             answer.classList.add("incorrect");
             const correctOption = optionList.children[correctIndex];
             correctOption.classList.add("correct");
+            insertAnimation('wrong');
         }
 
         const allOptions = optionList.children.length;
@@ -204,6 +332,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
                
     function showResult() {
+        clearExplanationContainer();
+            clearAnimationContainer();
         fetch('/position')
             .then(response => {
                 if (!response.ok) {
@@ -214,7 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 let positionNumber = data.position;
                 let earnedCash = 0;
-                console.log(earnedCash);
                 let quizNum = parseInt(quizNumber);
     
                 infoBox.classList.remove("activeInfo");
@@ -436,6 +565,8 @@ document.addEventListener("DOMContentLoaded", () => {
         infoBox.classList.remove("activeInfo");
     });
 
+    
+
     nextBtn.addEventListener("click", () => {
         if (queCount < questions.length - 1) {
             queCount++;
@@ -443,6 +574,8 @@ document.addEventListener("DOMContentLoaded", () => {
             showQuestions(queCount);
             queCounter(queNumb);
             nextBtn.classList.remove("show");
+            clearExplanationContainer();
+            clearAnimationContainer();
         } else {
             showResult();
         }

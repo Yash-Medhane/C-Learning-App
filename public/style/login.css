@@ -136,3 +136,21 @@ body {
 .login-btn:hover {
     background: #0B87EC;
 }
+
+.admin {
+    width: 100%;
+    padding: 15px;
+    background: #2F9CF4;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    top: 20px;
+}
+
+.admin:hover {
+    background: #0B87EC;
+}

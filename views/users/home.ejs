@@ -1,56 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C Mastermind</title>
-    <link rel="stylesheet" href="style/home.css">
-    <link rel="shortcut icon" href="assets/letter-c.png" type="image/x-icon">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/build/player/lottie.min.js"></script>
+  <link rel="stylesheet" href="style/home.css">
 </head>
 <body>
+   
+  <div class="main-container">
+    <nav id="home-section" class="nav-container">
+        <div class="nav-name">
+          <div id="animation-container1">
+          </div>
+            <h1>Masterminds</h1>
+        </div>
+        <div class="links">
+            <ul>
+              <li><a href="#home-section">Home</a></li>
+              <li><a href="#about-section">About</a></li>
+                <li><a href="#games-section">Games</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+        </div>
+      </nav>
+        <div class="first-container">
+            <div class="left">
+                <div class="main-name">
+                    <h1>Welcome to C Learning Ultimate Programming Experience!</h1>
+                </div>
+                <div class="main-desc">
+                    <p>Test your C programming knowledge with our interactive quizzes. Learn as you play and master the language!</p>
+                </div>
+                
+                <div class="play-button">
+                  <button onclick="window.location.href='/login'">Let's Play</button>
+                </div>
+            </div>
+<div class="right">
+  <div id="animation-container">
 
-    <header>
-        <h1 id="c" class="animate__animated animate__bounce animate__delay-0.7s">C</h1>
-        <h1 id="m" class="animate__animated animate__backInRight animate__delay-0.7s animate__speed-50%">Mastermind</h1>
-        <nav>
-            <a href="#" class="animate__animated animate__zoomIn animate__delay-0.7s" class="active">About</a>
-            <a href="#" class="animate__animated animate__zoomIn animate__delay-0.7s">Game</a>
-            <a href="#" class="animate__animated animate__zoomIn animate__delay-0.7s">Services</a>
-            <a href="#" class="animate__animated animate__zoomIn animate__delay-0.7s">Contact</a>
-        </nav>
-    </header>
+  </div>
+</div>
+</div>
+<div id="about-section" class="second-container">
+  <section class="about">
+    <h1>About</h1>
+    <br>
+    <p>C is a powerful general-purpose programming language that was developed in the early 1970s by Dennis Ritchie at the Bell Telephone Laboratories to develop the UNIX operating system. C is widely used for system programming, writing other programming languages, and developing applications where performance and control are crucial.</p>
+    <hr>
+    <p>Learning C programming language is essential for anyone aspiring to become a proficient programmer.</p>
+    <hr>
+    <p>With our fun and interactive quiz, you can embark on an exciting journey to master C programming. Whether you're a beginner or an experienced programmer looking to enhance your skills, our quizzes will challenge your knowledge and help you grasp key concepts in a playful manner.</p>
+    <hr>
+    <p>With our fun and interactive quiz, you can embark on an exciting journey to master C programming.</p>
+</section>
+<p id="games-section"></p>
+</div >
 
-    <section class="home">
-        <img src="assets/mount2.png" class="mount2">
-        <img src="assets/mount1.png" class="mount1">
-        <img src="assets/bush2.png" class="bush2">
+<div   class="game-heading">
+  <h1>Fun Games</h1>
+</div>
+<div  class="third-container">
+  <section class="card game1">
+    <h2>Tic Tac Toe</h2>
+    <div class="img">
+      <div id="animation-container2">
 
-        <h1 class="title">Welcome to C Mastermind</h1>
-        <h1 class="title2">Unleash your coding potential with C Mastermind.</h1>
-        
-        <img src="assets/bush1.png" class="bush1">
-        <img src="assets/leaf2.png" class="leaf2">
-        <img src="assets/leaf1.png" class="leaf1">
-    </section>
+      </div>
+    </div>
+    <div class="btn">
+        <button class="play-btn" onclick="window.location.href='/TicTacToe'">Play</button>
+    </div>
+</section>
+<section class="card game2">
+  <h2>Stone Paper Scissor</h2>
+  <div class="img">
+    <div id="animation-container3">
 
-    <section class="about">
-        <h1>About</h1>
-        <br>
-        <p>C is a powerful general-purpose programming language that was developed in the early 1970s by Dennis Ritchie at the Bell Telephone Laboratories to develop the UNIX operating system. C is widely used for system programming, writing other programming languages, and developing applications where performance and control are crucial.</p>
-        <br>
-        <p>Learning C programming language is essential for anyone aspiring to become a proficient programmer. It lays the foundation for understanding how computers work at a low level and provides insights into memory management, pointers, and efficient programming techniques.</p>
-        <br>
-        <p>With our fun and interactive quiz, you can embark on an exciting journey to master C programming. Whether you're a beginner or an experienced programmer looking to enhance your skills, our quizzes will challenge your knowledge and help you grasp key concepts in a playful manner.</p>
-    </section>
+    </div>
+  </div>
+  <div class="btn">
+      <button class="play-btn" onclick="window.location.href='/StonePaperScissor'">Play</button>
+  </div>
+</section>
+<section class="card game3">
+  <h2>Guess The Number</h2>
+  <div class="img">
+    <div id="animation-container4">
 
-    <section class="play-button" class="animate__animated animate__hinge">
-        <button onclick="window.location.href='/login'" class="play-btn" class="animate__animated animate__hinge">Let's Play</button>
-    </section>
-
-    <script src="script/home.js"></script>
-
+    </div>
+  </div>
+  <div class="btn">
+      <button class="play-btn" onclick="window.location.href='/guessTheNumber'">Play</button>
+  </div>
+</section>
+</div>
+<div class="fourth">
+  <div class="help-anim">
+    <div id="animation-container5" class="left-animation">
+      <!-- Left animation content -->
+    </div>
+  </div>
+  <div class="fourth-container" id="contact-section">
+    <h2>Help & Support</h2>
+    <form id="emailForm">
+      <div class="email">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="message">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-content">
+      <div class="company-info">
+          <h3>About C Masterminds</h3>
+          <ul>
+              <li>Learn C language by playing quizzes</li>
+              <li>Master the fundamentals of C programming</li>
+              <li>Unlock your potential in coding with C</li>
+          </ul>
+      </div>
+      <div class="contact-info">
+          <h3>Contact Us</h3>
+          <p>Address: 123 Code Street, Coding Town, CodeLand</p>
+          <p>Phone: 555-1234-5678</p>
+          <p>Email: info@cmasterminds.com</p>
+      </div>
+      <div class="social-media">
+          <h3>Connect Links</h3>
+          <ul>
+              <li><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/cmasterminds" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+              <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/cmasterminds" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+              <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/cmasterminds" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          </ul>
+      </div>
+  </div>
+  <p class="copyright">© 2024 C Masterminds. All rights reserved.</p>
+</div>
+</div>
+  <script src="script/home.js"></script>
 </body>
 </html>

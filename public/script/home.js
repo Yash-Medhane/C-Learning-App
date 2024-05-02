@@ -1,24 +1,122 @@
-const title = document.querySelector('.title');
-const title2 = document.querySelector('.title2');
-const leaf1 = document.querySelector('.leaf1');
-const leaf2 = document.querySelector('.leaf2');
-const bush2 = document.querySelector('.bush2');
-const mount1 = document.querySelector('.mount1');
-const mount2 = document.querySelector('.mount2');
-const playbtn = document.querySelector('.play-btn');
+document.addEventListener("DOMContentLoaded", function() {
+    // Select the container element
+    const container = document.getElementById('animation-container');
+  
+    // Load the animation JSON file
+    const animationData = {
+        container: container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'animations/main-animation.json' // Path to your JSON animation file
+    };
+  
+    // Render the animation
+    const anim = lottie.loadAnimation(animationData);
 
-document.addEventListener('scroll', function() {
-    let value = window.scrollY;
-    //console.log(value);
-    title.style.marginTop = value * 1.1 + 'px';
-    title2.style.marginTop = value * 1.1 + 'px';
-    playbtn.style.marginTop= value * 1.2 + 'px';
+    const container1 = document.getElementById('animation-container1');
+    const animationData1 = {
+        container: container1,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'animations/head-animation.json' // Path to your JSON animation file
+    };
+  
+    // Render the animation
+    const anim1 = lottie.loadAnimation(animationData1);
+  
+    // Load the animation JSON file
+    const container2 = document.getElementById('animation-container2');
+    const animationData2 = {
+        container: container2,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'animations/tic-tac-toe.json' // Path to your JSON animation file
+    };
+  
+    // Render the animation
+    const anim2 = lottie.loadAnimation(animationData2);
 
-    leaf1.style.marginLeft = -value + 'px';
-    leaf2.style.marginLeft = value + 'px';
+    const container3 = document.getElementById('animation-container3');
+    const animationData3 = {
+        container: container3,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'animations/stone-paper-scissor.json' // Path to your JSON animation file
+    };
+  
+    // Render the animation
+    const anim3 = lottie.loadAnimation(animationData3);
 
-    bush2.style.marginBottom = -value + 'px';
+    const container4 = document.getElementById('animation-container4');
+    const animationData4 = {
+        container: container4,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'animations/guess-number.json' // Path to your JSON animation file
+    };
+  
+    // Render the animation
+    const anim4 = lottie.loadAnimation(animationData4);
+    const container5 = document.getElementById('animation-container5');
+    const animationData5 = {
+        container: container5,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'animations/help1.json' // Path to your JSON animation file
+    };
+  
+    // Render the animation
+    const anim5 = lottie.loadAnimation(animationData5);
+    const container6 = document.getElementById('animation-container6');
+    const animationData6 = {
+        container: container6,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'animations/help2.json' // Path to your JSON animation file
+    };
+  
+    // Render the animation
+    const anim6 = lottie.loadAnimation(animationData6);
+  });
+  
+  
 
-    mount1.style.marginBottom = -value * 1.1 + 'px';
-    mount2.style.marginBottom = -value * 1.1 + 'px';
-});
+  function scrollToSection(sectionId) {
+    document.querySelector(sectionId).scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+  // Event listeners for each link
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+  
+  // Event listener for the home link
+  document.querySelector('a[href="#home-section"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    scrollToTop();
+  });
+
+  document.querySelector('a[href="#about-section"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    scrollToSection('#about-section');
+  });
+  document.querySelector('a[href="#games-section"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    scrollToSection('#games-section');
+  });
+  document.querySelector('a[href="#contact-section"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    scrollToSection('#contact-section');
+  });

@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;  
+
+}
+
+
+body{
+    background-color: rgb(23, 73, 73);
+    text-align: center;
+}
+
+span{
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;
+    top: 50px;
+    color:rgb(65, 27, 34);
+    background-color: rgb(169, 141, 194);
+    border-radius: 10px;
+}
+
+.choice{
+     height: 150px;
+     width: 150px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.resbutton{
+    padding: 1px;
+    font-size: 1.5rem;
+    color: brown;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+    border-radius: 10px;
+}
+
+img{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.choices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+    gap: 3rem;
+}
+.names{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 7.5rem;
+}
+
+.name{
+    color: antiquewhite;
+    font-size: 30px;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.choice:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0.8rem rgb(65, 27, 34);
+}
+.score-board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+   margin-top: 5rem;
+}
+
+.score{
+    color: antiquewhite;
+    font-size: 30px;
+}
+
+#msg{
+   position: relative;
+   top: 100px;
+   padding: 1rem;
+    font-size: 30px;
+    color: rgb(241, 235, 235);
+    background-color: rgb(70, 55, 29);
+    display: inline;
+    border-radius: 10px;
+}

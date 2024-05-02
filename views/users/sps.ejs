@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/sps.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>game</title>
+</head>
+<body>
+    <h1><span>Rock Paper Scissor</span></h1>
+    <div class="choices">
+        <div class="choice" id="rock">
+            <img src="assets/rock.png" alt="rock">
+        </div>
+        <div class="choice" id="paper">
+            <img src="assets/paper.png" alt="paper">
+        </div>
+        <div class="choice" id="scissor">
+            <img src="assets/scissor.png" alt="scissor">
+        </div>
+    </div>
+    <div class="names">
+        <div class="name" id="rock"> Rock</div>
+        <div class="name" id="paper">Paper</div>
+        <div class="name" id="scissor">Scissor</div>
+    </div>
+    <div class="score-board">
+        <div class="score">
+            <p id="user-score">0</p>
+            <p>You</p>
+        </div>
+        <div class="score">
+            <p id="comp-score">0</p>
+            <p>Comp</p>
+        </div>
+    </div>
+    <div class="msg_container">
+        <p id="msg" class="animate__animated animate__zoomIn animate__delay-0.7s">Play your move</p>
+    </div>
+</div>
+<button class="resbutton">Reset Game</button>
+</main>
+    <script src="script/sps.js"></script>
+</body>
+</html>

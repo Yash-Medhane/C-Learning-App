@@ -111,6 +111,35 @@ const loginload = async(req,res)=>{
     }
 }
 
+const tictactoe = async(req,res)=>{
+    try {
+        
+        res.render('ttt');
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+const stonePaperScissor = async(req,res)=>{
+    try {
+        
+        res.render('sps');
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+const guessTheNumber = async(req,res)=>{
+    try {
+        
+        res.render('gtn');
+
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 const verifylogin = async (req, res) => {
     try {
         const email = req.body.email;
@@ -300,6 +329,22 @@ const position = async (req, res) => {
     }
   };
 
+  const hint = async (req, res) => {
+    try {
+      const userId = req.session.user_id; // Assuming user_id is the ID of the logged-in user
+      const user = await users.findById(userId, 'hints');
+  
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+  
+      // Send the position data as JSON
+      res.json({ hints: user.hints });
+    } catch (err) {
+      console.error('Error retrieving hints data', err);
+      res.status(500).send('Internal Server Error');
+    }
+  };
  
   const updatePosition = async (req, res) => {
     try {
@@ -316,6 +361,21 @@ const position = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+const updateHints = async (req, res) => {
+    try {
+        const userId = req.session.user_id; // Assuming user_id is the ID of the logged-in user
+        const newHints = req.body.newHints; // Get the new position value from the request body
+        // Update the user's position in the database
+        const updatedUser = await users.findByIdAndUpdate(userId, { hints: newHints }, { new: true });
+
+        if (!updatedUser) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+    } catch (err) {
+        console.error('Error updating hints data', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
 
 const cash = async (req, res) => {
     try {
@@ -328,6 +388,39 @@ const cash = async (req, res) => {
   
       // Send the position data as JSON
       res.json({ cash: user.cash });
+    } catch (err) {
+      console.error('Error retrieving cash data', err);
+      res.status(500).send('Internal Server Error');
+    }
+  };
+
+  const updateNewCash = async (req, res) => {
+    try {
+        const userId = req.session.user_id; // Assuming user_id is the ID of the logged-in user
+        const newCash = req.body.newCash; // Get the new position value from the request body
+        // Update the user's position in the database
+        const updatedUser = await users.findByIdAndUpdate(userId, { cash: newCash }, { new: true });
+
+        if (!updatedUser) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+    } catch (err) {
+        console.error('Error updating cash data', err);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+  const diamond = async (req, res) => {
+    try {
+      const userId = req.session.user_id; // Assuming user_id is the ID of the logged-in user
+      const user = await users.findById(userId, 'diamond');
+  
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+  
+      // Send the position data as JSON
+      res.json({ diamond: user.diamond });
     } catch (err) {
       console.error('Error retrieving cash data', err);
       res.status(500).send('Internal Server Error');
@@ -433,14 +526,21 @@ module.exports = {
     loadRegister,
     insertUser,
     loginload,
+    tictactoe,
+    stonePaperScissor,
+    guessTheNumber,
     verifylogin,
     loadhome,
     userlogout,
     updateButton,
     indexpage,
+    updateNewCash,
     position,
+    hint,
     updatePosition,
+    updateHints,
     cash,
+    diamond,
     updateCash,
     updateLevel,
     updateQuiz,
