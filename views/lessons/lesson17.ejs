@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basics of Arrays in C</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slide active">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info cssanimation leFadeInLeft sequence">
+                <h1>What is an Array?</h1>
+        <p>An array in C is a collection of elements of the same data type, stored in contiguous memory locations. It allows you to store multiple values of the same type under a single variable name.</p>
+            </div>
+        </div>
+
+
+        <div class="slide">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>Array Initialization</h1>
+        <p>You can initialize an array at the time of declaration or assign values to it later using indexing.</p>
+        <pre><code>// Initializing an array at declaration
+int numbers[5] = {1, 2, 3, 4, 5};
+
+// Assigning values to an array later
+int numbers[5];
+numbers[0] = 1;
+numbers[1] = 2;
+numbers[2] = 3;
+numbers[3] = 4;
+numbers[4] = 5;</code></pre>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Accessing Arrays in C</h1>
+        <p>You can access individual elements of an array using their index. Remember that array indices in C start from 0.</p>
+        <pre><code>int numbers[5] = {1, 2, 3, 4, 5};
+printf("Third element of the array: %d", numbers[2]); // Output: 3</code></pre>
+    
+
+    
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/2.jpg" alt="">
+            <div class="info">
+                
+
+    <section class="content">
+        <h1>Relationship Between Arrays and Pointers in C</h1>
+        <p>In C, arrays and pointers are closely related. An array name can be treated as a pointer to its first element. Hence, you can use pointer arithmetic to traverse an array.</p>
+        <pre><code>int numbers[5] = {1, 2, 3, 4, 5};
+int *ptr = numbers; // Assigning the address of the first element to a pointer
+printf("First element of the array: %d", *ptr); // Output: 1</code></pre>
+</section>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/3.jpg" alt="">
+            <div class="info">
+                <p><strong>Understanding arrays is fundamental to mastering C programming. Practice creating and manipulating arrays to improve your skills!</strong></p>
+            </div>
+
+        </div>
+        
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+
+        </div>
+    </div>
+</div>
+<div class="play-button">
+    <button onclick="window.location.href='unit4'">Play</button>
+  </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

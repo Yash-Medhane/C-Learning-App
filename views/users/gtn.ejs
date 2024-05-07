@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess the Number Game</title>
+<link rel="stylesheet" href="style/gtn.css">
+<link rel="shortcut icon" href="assets/letter-c.png" type="image/x-icon">
 </head>
 <body>
-    <h1>Guess The Number</h1>
+    <a href="/" class="back"><p id="arrow">&larr;</p><p id="name">Back</p></a>
+<div class="container">
+  <h1>Guess the Number Game</h1>
+  <p class="instruction">Guess a number between 1 and 100:</p>
+  <input type="number" id="guessField" class="guessField">
+  <input type="submit" value="Submit Guess" class="guessSubmit">
+  <p class="message"></p>
+  <button class="resetButton" style="display:none;">
+    Reset Game
+  </button>
+</div>
+<script src="script/gtn.js"></script>
 </body>
 </html>

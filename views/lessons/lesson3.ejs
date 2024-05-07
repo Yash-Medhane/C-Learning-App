@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Variables in C Programming</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+        
+        <div class="slide active">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>What is a Variable?</h1>
+        <p>In C programming, a variable is a named storage location that holds a value. It allows you to store and manipulate data in your program.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Declaration of Variables</h1>
+                <p>To declare a variable in C, you need to specify the data type and the variable name. For example:</p>
+                <pre><code>int age;
+        float height;
+        char grade;</code></pre>
+                <p>This declares an integer variable named <code>age</code>, a floating-point variable named <code>height</code>, and a character variable named <code>grade</code>.</p>
+
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/3.jpg" alt="">
+            <div class="info">
+                <h1>Initialization of Variables</h1>
+        <p>Variables can be initialized at the time of declaration. Initialization means assigning a value to a variable. For example:</p>
+        <pre><code>int count = 10;
+float pi = 3.14;
+char letter = 'A';</code></pre>
+        <p>This initializes the <code>count</code> variable with the value 10, the <code>pi</code> variable with the value 3.14, and the <code>letter</code> variable with the character 'A'.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/1.jpg" alt="">
+            <div class="info">
+                <h1>Data Types</h1>
+                <p>C supports various data types such as integers, floating-point numbers, characters, and more. Some common data types include:</p>
+                <ul>
+                    <li><strong>int:</strong> Integer data type - used for whole numbers.</li>
+                    <p>Example: <code>int age = 25;</code></p>
+                    <li><strong>float:</strong> Floating-point data type - used for numbers with fractional parts.</li>
+                    <p>Example: <code>float height = 5.9;</code></p>
+                    <li><strong>char:</strong> Character data type - used for single characters.</li>
+                    <p>Example: <code>char grade = 'A';</code></p>
+                    <li><strong>double:</strong> Double-precision floating-point data type - used for double-precision floating-point numbers.</li>
+                    <p>Example: <code>double pi = 3.14159;</code></p>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/2.jpg" alt="">
+            <div class="info">
+                <h1>Scope of Variables</h1>
+                <p>The scope of a variable refers to the part of the program where the variable is accessible. In C, variables can have either local scope or global scope.</p>
+                <p><strong>Local Variables:</strong> Variables declared inside a function have local scope, meaning they are only accessible within that function.</p>
+                <p><strong>Global Variables:</strong> Variables declared outside of any function have global scope, meaning they can be accessed from any part of the program.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/3.jpg" alt="">
+            <div class="info">
+                <h1>Naming Convention for Variables</h1>
+                <p>When naming variables in C, follow these conventions:</p>
+                <ul>
+                    <li>Use meaningful names that describe the purpose of the variable.</li>
+                    <li>Start variable names with a letter or underscore (_).</li>
+                    <li>Avoid using reserved keywords as variable names.</li>
+                    <li>Use camelCase or underscore_case for multi-word variable names.</li>
+                </ul>
+                <p>Example: <code>totalAmount</code>, <code>userScore</code>, <code>average_grade</code></p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info">
+                <p><strong>Understanding variables is essential for writing efficient and readable C programs. Practice declaring, initializing, and using variables to become proficient in C programming!</strong></p>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+
+        </div>
+    </div>
+    <div class="play-button">
+        <button onclick="window.location.href='unit1'">Play</button>
+      </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

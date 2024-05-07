@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Arrays in C</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+       
+
+
+        <div class="slide active" >
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>1D Array</h1>
+        <p>A 1D array in C is a linear collection of elements of the same data type. It is accessed using a single index.</p>
+        <pre><code>int numbers[5] = {1, 2, 3, 4, 5};</code></pre>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Multidimensional Array</h1>
+                <p>A multidimensional array in C is an array of arrays. It can have two or more dimensions, allowing you to represent data in rows and columns.</p>
+                <pre><code>int matrix[3][3] = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };</code></pre>    </section>
+
+    <section class="content">
+        <h1>Dynamic Array</h1>
+        <p>In C, dynamic arrays are created using pointers and memory allocation functions like malloc() and realloc(). They allow you to allocate memory dynamically at runtime.</p>
+        <pre><code>int *dynamicArray = (int *)malloc(5 * sizeof(int));</code></pre>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/1.jpg" alt="">
+            <div class="info">
+                <h1>Character Array</h1>
+                <p>A character array in C is a 1D array of characters, often used to store strings.</p>
+                <pre><code>char name[20] = "John Doe";</code></pre>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/2.jpg" alt="">
+            <div class="info">
+                <h1>Two-Pointer Array</h1>
+        <p>A two-pointer array is an array of pointers. Each element of the array points to another memory location, allowing you to create arrays of dynamic size.</p>
+        <pre><code>int *ptrArray[5]; // Array of pointers</code></pre>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info">
+                <p><strong>Understanding different types of arrays expands your ability to store and manipulate data in C. Experiment with each type to grasp their full potential!</strong></p>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+           
+
+        </div>
+    </div>
+</div>
+<div class="play-button">
+    <button onclick="window.location.href='unit4'">Play</button>
+  </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

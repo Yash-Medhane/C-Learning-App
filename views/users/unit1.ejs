@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Section 1</title>
  <link rel="stylesheet" href="style/unit1.css">
+ <link rel="shortcut icon" href="assets/letter-c.png" type="image/x-icon">
 </head>
 <body>
     <header>
+        
         <h1>Section 1</h1>
+        
     </header>
     <div class="container">
+        <a href="/home1" class="back"><p id="arrow">&larr;</p><p id="name">Back</p></a>
         <div class="levels-wrapper">
             
 <section class="level-section lesson1">
@@ -20,7 +24,7 @@
         <img src="assets/town1.png" alt="lesson1">
     </div>
     <div class="btn">
-        <button class="learn-btn">Learn</button>
+        <button class="learn-btn" onclick="window.location.href='/lesson1'">Learn</button>
         <button class="play-btn btn1 locked1" onclick="toggleSub1()">Play</button>
     </div>
 </section>
@@ -37,7 +41,7 @@
         <img src="assets/town2.png" alt="lesson1">
     </div>
     <div class="btn">
-    <button class="learn-btn">Learn</button>
+    <button class="learn-btn" onclick="window.location.href='/lesson2'">Learn</button>
     <button class="play-btn btn2 locked1" onclick="toggleSub2()">Play</button>
     </div>
 </section>
@@ -52,8 +56,8 @@
                 <div class="quiz">
                     <img src="assets/town3.png" alt="lesson1">
                 </div>
-                <div class="btn">
-                <button class="learn-btn">Learn</button>
+                <div class="btn" >
+                <button class="learn-btn" onclick="window.location.href='/lesson3'">Learn</button>
                 <button class="play-btn btn3 locked1" onclick="toggleSub3()">Play</button>
                 </div>
             </section>
@@ -69,7 +73,7 @@
                     <img src="assets/town4.png" alt="lesson1">
                 </div>
                 <div class="btn">
-                <button class="learn-btn">Learn</button>
+                <button class="learn-btn" onclick="window.location.href='/lesson4'">Learn</button>
                 <button class="play-btn btn4 locked1" onclick="toggleSub4()">Play</button>
                 </div>
             </section>
@@ -85,7 +89,7 @@
                     <img src="assets/town5.png" alt="lesson1">
                 </div>
                 <div class="btn">
-                <button class="learn-btn">Learn</button>
+                <button class="learn-btn" onclick="window.location.href='/lesson5'">Learn</button>
                 <button class="play-btn btn5 locked1" onclick="toggleSub5()">Play</button>
                 </div>
             </section>
@@ -115,9 +119,12 @@
             .then(data => {
                 let positionNumber = data.position;
                 
-                for (let i = 1; i <= positionNumber; i++) {
-                    const quiz = document.getElementById(`quiz${i}`);
+                for (let i = 1; i <= 15; i++) {
+
+                    if(i <= positionNumber){
+                        const quiz = document.getElementById(`quiz${i}`);
                     quiz.classList.remove('locked');
+                    }
                 }
             })
             .catch(error => console.error('Error fetching position data:', error));
@@ -126,11 +133,10 @@
     const lockedQuizzes = document.querySelectorAll('.quiz.locked');
 
     lockedQuizzes.forEach(quiz => {
-        quiz.addEventListener('click', () => {
-            showMessage('Please complete the previous level first.');
-        });
+        
         quiz.addEventListener('mousedown', (event) => {
             if (quiz.classList.contains('locked')) {
+                showMessage('Please complete the previous level first.');
                 event.preventDefault(); // Prevent the default action when a locked button is clicked
             }
         });

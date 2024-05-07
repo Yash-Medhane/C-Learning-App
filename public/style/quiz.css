@@ -607,6 +607,7 @@ footer button.show{
     font-size: 25px;
     font-weight: bold;
     margin-left: 100px;
+    margin-bottom: 200px;
     border-radius: 15px; /* Round corners */
     transition: all 0.3s ease; /* Add transition for smooth appearance changes */
 }

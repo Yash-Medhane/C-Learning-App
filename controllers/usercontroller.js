@@ -69,7 +69,7 @@ const insertUser = async (req, res) => {
             trophy: 0,
             position: 1,
             cash: 0,
-            hints: 0,
+            hints: 5,
             is_admin: 0
         });
 

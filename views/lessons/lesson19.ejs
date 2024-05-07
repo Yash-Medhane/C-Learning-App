@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Strings in C</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+        
+
+
+        <div class="slide active">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>What are Strings?</h1>
+        <p>In C programming, strings are sequences of characters terminated by a null character ('\0'). They are typically used to represent text.</p>
+        <p>Unlike some other programming languages, C does not have a built-in string data type. Instead, strings are represented as arrays of characters.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Character Array vs. String Literals</h1>
+                <p>In C, you can represent strings using character arrays or string literals.</p>
+                <p>A character array is a sequence of characters stored in contiguous memory locations, while a string literal is a sequence of characters enclosed in double quotes.</p>
+                <pre><code>char str1[] = "Hello"; // Character array
+        char str2[6] = {'H', 'e', 'l', 'l', 'o', '\0'}; // Another way to represent "Hello"
+        char *str3 = "World"; // String literal</code></pre>
+    </section>
+
+    <section class="content">
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                
+    </section>
+
+    <section class="content">
+        <h1>String Input/Output</h1>
+        <p>C provides functions like <code>scanf()</code> and <code>printf()</code> for inputting and outputting strings respectively.</p>
+        <pre><code>char name[20];
+printf("Enter your name: ");
+scanf("%s", name);
+printf("Hello, %s!\n", name);</code></pre>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/1.jpg" alt="">
+            <div class="info">
+                <h1>Character Array Manipulation</h1>
+        <p>Strings stored as character arrays can be manipulated using various string manipulation functions like <code>strcpy()</code>, <code>strcat()</code>, and <code>strlen()</code>.</p>
+        <pre><code>#include &lt;string.h&gt;
+
+char str1[20] = "Hello";
+char str2[20] = "World";
+
+strcpy(str1, "Goodbye"); // Copy "Goodbye" into str1
+strcat(str1, " World"); // Concatenate " World" to str1
+printf("%s\n", str1); // Output: "Goodbye World"
+printf("Length: %d\n", strlen(str1)); // Output: 13</code></pre>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/2.jpg" alt="">
+            <div class="info">
+                <h1>String Handling Best Practices</h1>
+                <p>When working with strings in C, it's essential to ensure proper null termination, avoid buffer overflows, and handle memory allocation appropriately.</p>
+                <p>Always use functions like <code>strcpy()</code> and <code>strcat()</code> carefully to prevent buffer overflow vulnerabilities.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info">
+                <p><strong>Understanding strings and their manipulation techniques is crucial for effective C programming. Practice using string functions to become proficient in working with text data!</strong></p>
+            </div>
+
+        </div>
+        
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+       
+
+        </div>
+    </div>
+
+</div>
+<div class="play-button">
+    <button onclick="window.location.href='unit4'">Play</button>
+  </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

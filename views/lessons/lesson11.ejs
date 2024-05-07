@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions in C</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+
+        <div class="slide active">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>What is a Function?</h1>
+        <p>A function in C is a reusable block of code that performs a specific task. It allows you to break down your program into smaller, manageable parts, making your code more organized and easier to understand.</p>
+        <p>Functions are like recipes; they take input (parameters), perform operations, and return output (if necessary).</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Function Structure</h1>
+        <p>A function in C typically consists of:</p>
+        <ul>
+            <li><strong>Function Declaration:</strong> Declares the function's name, return type, and parameters (if any).</li>
+            <li><strong>Function Definition:</strong> Contains the actual code that defines what the function does.</li>
+            <li><strong>Function Invocation (Calling):</strong> The process of using the function in your code.</li>
+        </ul>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/1.jpg" alt="">
+            <div class="info">
+                <h1>Distinguishing Function Declaration and Definition</h1>
+        <p><strong>Function Declaration:</strong> Tells the compiler about the function's name, return type, and parameters. It's like a function's signature.</p>
+        <pre><code>int add(int a, int b);</code></pre>
+        <p><strong>Function Definition:</strong> Contains the actual code of the function.</p>
+        <pre><code>int add(int a, int b) {
+    return a + b;
+}</code></pre>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/2.jpg" alt="">
+            <div class="info">
+                <h1>Void Function Usage</h1>
+                <p>A void function is a function that doesn't return any value. It's typically used when the function performs a task without needing to return any result.</p>
+                <pre><code>void greet() {
+            printf("Hello, World!\n");
+        }</code></pre>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/3.jpg" alt="">
+            <div class="info">
+                <h1>Importance of Function Prototype</h1>
+        <p>A function prototype declares the function's name, return type, and parameters without providing the function body. It informs the compiler about the function's existence before its actual definition, allowing you to use the function before defining it.</p>
+        <pre><code>int add(int a, int b); // Function prototype</code></pre>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info">
+                <p><strong>Functions are fundamental building blocks of C programming. They promote code reusability, organization, and modularity, making it easier to develop and maintain complex software.</strong></p>
+            </div>
+        </div>
+
+        
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+           
+        </div>
+    </div>
+    
+    <div class="play-button">
+        <button onclick="window.location.href='unit3'">Play</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

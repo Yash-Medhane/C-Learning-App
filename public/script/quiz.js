@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const infoBox = document.querySelector(".info_box");
     const exitBtn = document.querySelector(".buttons .quit");
     const resbtn = document.querySelector(".resbtn");
-    const nextQuizBtn = document.querySelector(".next_quiz");
+    const nextQuizbtn = document.querySelector(".next_quiz");
     const quizBox = document.querySelector(".quiz_box");
     const resultBox = document.querySelector(".result_box");
     const optionList = document.querySelector(".option_list");
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
    
     function insertExplaination(explain) {
         const explainationDiv = document.querySelector(".explanation");
-        explainationDiv.innerHTML = ''; // Clear any existing content
+        explainationDiv.innerHTML = 'Explanation : '; // Clear any existing content
         explainationDiv.style.display = 'block'; // Ensure the explanation div is visible
     
         // Typing effect
@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (index === explain.length) {
                 clearInterval(typingInterval); // Stop typing when all characters are displayed
             }
-        }, 50); // Typing speed: 50ms per character
+        }, 20); // Typing speed: 50ms per character
     }
     function insertAnimation(path){
         const container = document.getElementById('animation');
@@ -515,7 +515,25 @@ function displayMessage(message) {
       }
 
     resbtn.addEventListener('click', () => redirectToQuiz(parseInt(quizNumber)));
-    nextQuizBtn.addEventListener('click', () => redirectToQuiz(parseInt(quizNumber) + 1));
+    nextQuizbtn.addEventListener('click', () => {
+
+        if (parseInt(quizNumber) <= 15) {
+            window.location.href='/unit1'
+        }
+        else if(parseInt(quizNumber) <= 30){
+            window.location.href='/unit2'
+        }
+        else if(parseInt(quizNumber) <= 45){
+            window.location.href='/unit3'
+        }
+        else if(parseInt(quizNumber) <= 60){
+            window.location.href='/unit4'
+        }
+        else{
+            window.location.href='/unit5'
+        }
+    });
+ 
     
     
     button.addEventListener('click',function(){

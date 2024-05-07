@@ -69,3 +69,29 @@ button{
 .hide{
     display: none;
 }
+
+.back{
+    text-decoration: none;
+    display: flex;
+  }
+
+  #arrow{
+    font-size: 40px;
+    position: relative;
+    left: 5%;
+    top: 10%;
+    transition: 0.5s;
+    color: #c8702d;
+  }
+  #name{
+    font-size: 20px;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    transition: 0.5s;
+    color: #e76a39;
+  }
+  .back:hover > #arrow{
+    color: #672b11;
+    transform: scale(1.2);
+  }

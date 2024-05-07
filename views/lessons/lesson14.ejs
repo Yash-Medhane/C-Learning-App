@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesting of Functions in C</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slide active">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info cssanimation leFadeInLeft sequence">
+                <h1>What are Nested Functions?</h1>
+                <p>In C programming, nested functions refer to the practice of defining a function within another function. This allows you to encapsulate functionality and create more modular and readable code.</p>
+                <p>Consider a scenario where you need a helper function that is only used within a specific context. Instead of declaring it globally, you can define it inside the main function or any other function where it's required.</p>
+                   
+            </div>
+        </div>
+
+
+        <div class="slide">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>Benefits of Nested Functions</h1>
+                <p>1. **Encapsulation**: Nested functions help encapsulate functionality within a specific scope, reducing namespace pollution.</p>
+                <p>2. **Modularity**: By defining functions within functions, you can break down complex tasks into smaller, more manageable pieces.</p>
+                <p>3. **Readability**: Nesting functions can improve code readability by keeping related functionality together and reducing the need for global variables.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Example: Nested Functions</h1>
+        <pre><code>#include &lt;stdio.h&gt;
+
+void outerFunction() {
+    void innerFunction() {
+        printf("Inside inner function.\n");
+    }
+
+    printf("Inside outer function.\n");
+    innerFunction();
+}
+
+int main() {
+    outerFunction();
+    return 0;
+}</code></pre>
+        <p class="notice">In this example, `innerFunction()` is defined within `outerFunction()`, and it's called inside `outerFunction()`. This demonstrates the concept of nesting functions.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <p><strong>Understanding nested functions allows you to write cleaner, more organized code and leverage the benefits of encapsulation and modularity.</strong></p>
+            </div>
+
+        </div>
+
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+        
+        </div>
+    </div>
+
+</div>
+<div class="play-button">
+    <button onclick="window.location.href='unit3'">Play</button>
+  </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

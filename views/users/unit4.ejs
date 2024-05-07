@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 1</title>
+ <link rel="stylesheet" href="style/unit1.css">
+ <link rel="shortcut icon" href="assets/letter-c.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Section 4</h1>
+    </header>
+    <div class="container">
+        <a href="/home1" class="back"><p id="arrow">&larr;</p><p id="name">Back</p></a>
+        <div class="levels-wrapper">
+
+            <section class="level-section lesson2">
+                <h2>Array And Strings</h2>
+    <div class="quiz">
+        <img src="assets/town2.png" alt="lesson1">
+    </div>
+    <div class="btn">
+    <button class="learn-btn" onclick="window.location.href='/lesson17'">Learn</button>
+    <button class="play-btn btn2 locked1" onclick="toggleSub2()">Play</button>
+    </div>
+</section>
+
+<div class="sub2 sub">
+    <button class="quiz locked" id="quiz49">1</button>
+    <button class="quiz locked" id="quiz50">2</button>
+    <button class="quiz locked" id="quiz51">3</button>
+</div>
+            <section class="level-section lesson2">
+                <h2>Types Of Array</h2>
+                <div class="quiz">
+                    <img src="assets/town3.png" alt="lesson1">
+                </div>
+                <div class="btn">
+                <button class="learn-btn" onclick="window.location.href='/lesson18'">Learn</button>
+                <button class="play-btn btn3 locked1" onclick="toggleSub3()">Play</button>
+                </div>
+            </section>
+            
+            <div class="sub3 sub">
+                <button class="quiz locked" id="quiz52">1</button>
+                <button class="quiz locked" id="quiz53">2</button>
+                <button class="quiz locked" id="quiz54">3</button>
+            </div>
+            <section class="level-section lesson2">
+                <h2>Introduction to String</h2>
+                <div class="quiz">
+                    <img src="assets/town4.png" alt="lesson1">
+                </div>
+                <div class="btn">
+                <button class="learn-btn" onclick="window.location.href='/lesson19'">Learn</button>
+                <button class="play-btn btn4 locked1" onclick="toggleSub4()">Play</button>
+                </div>
+            </section>
+            
+            <div class="sub4 sub">
+                <button class="quiz locked" id="quiz55">1</button>
+                <button class="quiz locked" id="quiz56">2</button>
+                <button class="quiz locked" id="quiz57">3</button>
+            </div>
+            <section class="level-section lesson2">
+                <h2>String Library Function</h2>
+                <div class="quiz">
+                    <img src="assets/town5.png" alt="lesson1">
+                </div>
+                <div class="btn">
+                <button class="learn-btn" onclick="window.location.href='/lesson20'">Learn</button>
+                <button class="play-btn btn5 locked1" onclick="toggleSub5()">Play</button>
+                </div>
+            </section>
+            
+            <div class="sub5 sub">
+                <button class="quiz locked" id="quiz58">1</button>
+                <button class="quiz locked" id="quiz59">2</button>
+                <button class="quiz locked" id="quiz60">3</button>
+            </div>
+        </div>
+    </div>
+    <div class="msg">
+        <p id="message"></p>
+    </div>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    getposition();
+
+    function getposition() {
+        fetch('/position')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch position data');
+                }
+                return response.json();
+            })
+            .then(data => {
+                let positionNumber = data.position;
+                
+                for (let i = 49; i <= 60; i++) {
+
+if(i <= positionNumber){
+    const quiz = document.getElementById(`quiz${i}`);
+quiz.classList.remove('locked');
+}
+}
+            })
+            .catch(error => console.error('Error fetching position data:', error));
+    }
+
+    const lockedQuizzes = document.querySelectorAll('.quiz.locked');
+
+    lockedQuizzes.forEach(quiz => {
+        
+        quiz.addEventListener('mousedown', (event) => {
+            if (quiz.classList.contains('locked')) {
+                showMessage('Please complete the previous level first.');
+                event.preventDefault(); // Prevent the default action when a locked button is clicked
+            }
+        });
+    });
+
+    function showMessage(message) {
+        const messageElement = document.getElementById('message');
+        messageElement.textContent = message;
+        const messageBox = document.querySelector('.msg');
+        messageBox.style.display = 'block';
+        setTimeout(() => {
+            messageBox.style.display = 'none';
+        }, 3000); // Hide the message after 3 seconds
+    }
+
+    const quizzes = document.querySelectorAll('.quiz');
+
+    quizzes.forEach(quiz => {
+        quiz.addEventListener('click', () => {
+            if (!quiz.classList.contains('locked')) {
+                const quizNumber = parseInt(quiz.id.replace('quiz', ''));
+                redirectToQuiz(quizNumber);
+            }
+        });
+    });
+
+    function redirectToQuiz(quizNumber) {
+        // Redirect to the quiz page with quizNumber and positionNumber in the URL
+        window.location.href = `/bquiz?quiz=${quizNumber}`;
+    }
+});
+
+
+   
+
+function toggleSub1() {
+        var sub1Buttons = document.querySelectorAll('.sub1 button');
+        var playButton = document.querySelector('.btn1');
+
+        sub1Buttons.forEach(function(button) {
+            if (button.style.display === 'none') {
+                button.style.display = 'block';
+                playButton.textContent = 'Close';
+            } else {
+                button.style.display = 'none';
+                playButton.textContent = 'Play';
+            }
+        });
+    }
+    
+function toggleSub2() {
+        var sub1Buttons = document.querySelectorAll('.sub2 button');
+        var playButton = document.querySelector('.btn2');
+
+        sub1Buttons.forEach(function(button) {
+            if (button.style.display === 'none') {
+                button.style.display = 'block';
+                playButton.textContent = 'Close';
+            } else {
+                button.style.display = 'none';
+                playButton.textContent = 'Play';
+            }
+        });
+    }
+    
+function toggleSub3() {
+        var sub1Buttons = document.querySelectorAll('.sub3 button');
+        var playButton = document.querySelector('.btn3');
+
+        sub1Buttons.forEach(function(button) {
+            if (button.style.display === 'none') {
+                button.style.display = 'block';
+                playButton.textContent = 'Close';
+            } else {
+                button.style.display = 'none';
+                playButton.textContent = 'Play';
+            }
+        });
+    }
+    
+function toggleSub4() {
+        var sub1Buttons = document.querySelectorAll('.sub4 button');
+        var playButton = document.querySelector('.btn4');
+
+        sub1Buttons.forEach(function(button) {
+            if (button.style.display === 'none') {
+                button.style.display = 'block';
+                playButton.textContent = 'Close';
+            } else {
+                button.style.display = 'none';
+                playButton.textContent = 'Play';
+            }
+        });
+    }
+    
+function toggleSub5() {
+        var sub1Buttons = document.querySelectorAll('.sub5 button');
+        var playButton = document.querySelector('.btn5');
+
+        sub1Buttons.forEach(function(button) {
+            if (button.style.display === 'none') {
+                button.style.display = 'block';
+                playButton.textContent = 'Close';
+            } else {
+                button.style.display = 'none';
+                playButton.textContent = 'Play';
+            }
+        });
+    }
+    </script>
+</body>
+</html>
+

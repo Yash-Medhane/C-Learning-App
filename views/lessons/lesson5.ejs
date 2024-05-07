@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input and Output in C</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slide active">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info cssanimation leFadeInLeft sequence">
+                <h1>Using <code>scanf()</code> for Input</h1>
+        <p>The <code>scanf()</code> function is used to read input from the standard input stream (usually the keyboard) in C.</p>
+        <p>Its basic syntax is:</p>
+        <pre><code>scanf("format specifier", &amp;variable);</code></pre>
+        <p>Here's a breakdown of the components:</p>
+        <ul>
+            <li><strong>Format Specifier:</strong> Specifies the type of data to be read.</li>
+            <li><strong>&amp;variable:</strong> Address of the variable where the input will be stored.</li>
+        </ul>
+        
+            </div>
+        </div>
+
+        <div class="slide ">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info cssanimation leFadeInLeft sequence">
+
+        <p>Let's see some examples:</p>
+        <ul>
+            <li>Reading an integer:</li>
+            <pre><code>int num;
+scanf("%d", &amp;num);</code></pre>
+            <li>Reading a floating-point number:</li>
+            <pre><code>float price;
+scanf("%f", &amp;price);</code></pre>
+            <li>Reading a string:</li>
+            <pre><code>char name[50];
+scanf("%s", name);</code></pre>
+        </ul>
+        <p>Make sure to include the appropriate format specifier based on the type of data you're reading.</p>
+            </div>
+        </div>
+
+
+        <div class="slide">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>Using <code>printf()</code> for Output</h1>
+        <p>The <code>printf()</code> function is used to display output in C.</p>
+        <p>Its basic syntax is:</p>
+        <pre><code>printf("format string", value1, value2, ...);</code></pre>
+        <p>The format string contains placeholders for the values to be printed.</p>
+        <p>Here are some examples:</p>
+        <ul>
+            <li>Printing an integer:</li>
+            <pre><code>int num = 10;
+printf("The number is: %d\n", num);</code></pre>
+            <li>Printing a floating-point number:</li>
+            <pre><code>float price = 25.99;
+printf("The price is: %.2f\n", price);</code></pre>
+           
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                
+            <li>Printing a string:</li>
+            <pre><code>char name[] = "John";
+printf("Hello, %s!\n", name);</code></pre>
+        </ul>
+        <p>The format string can contain various formatting options to control the appearance of the output.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <p><strong>Understanding input and output handling is essential for interacting with users and displaying information in your C programs. Practice using <code>scanf()</code> and <code>printf()</code> along with format specifiers to improve your programming skills!</strong></p>
+
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+
+        </div>
+    </div>
+
+</div>
+<div class="play-button">
+    <button onclick="window.location.href='unit1'">Play</button>
+  </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

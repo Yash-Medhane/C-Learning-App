@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to C Programming</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+      
+
+
+        <div class="slide active">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>What is C?</h1>
+        <p>C is a versatile programming language that has influenced countless other languages. It's used for everything from system programming to game development. Developed by Dennis Ritchie in the early 1970s, it has influenced countless other languages. Here’s why C is special:</p>
+        <ul>
+            <li><b>Versatility:</b> C can be used for everything from system programming to game development.</li>
+            <li><b>Efficiency:</b> It's like a well-tuned engine—fast and reliable.</li>
+            <li><b>Low-Level Control:</b> C lets you peek under the hood and work directly with memory.</li>
+            <li><b>Portability:</b> C code can be easily moved between different platforms and systems.</li>
+        </ul>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Declaration and Initialization</h1>
+        <p>In C, declaration and initialization are essential concepts for working with variables.</p>
+        
+        <h1>Declaration</h1>
+        <p>Declare your intentions! When you declare a variable, you’re giving it a name—a label for something you want to store. In C, you declare variables with a specific data type.</p>
+        <pre><code>int age; // Declare an integer variable called 'age'
+</code></pre>
+        <p>You can declare multiple variables of the same type in a single line:</p>
+        <pre><code>int num1, num2, result; // Declare three integer variables</code></pre>
+        
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+        
+        <h1>Initialization</h1>
+        <p>Initialization is the process of assigning an initial value to a variable at the time of declaration. It's a good practice to initialize variables when they are declared to avoid using uninitialized values.</p>
+        <pre><code>double pi = 3.14159; // Initialize 'pi' with the value 3.14159</code></pre>
+        <p>You can also initialize variables during declaration and assign them values later:</p>
+        <pre><code>int count = 0; // Initialize 'count' with 0
+count = 10;    // Assign a new value to 'count'</code></pre>
+    </section>
+
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+        
+    <section class="content">
+        <h1>Your First C Program</h1>
+        <p>Let's write a simple "Hello, World!" program in C:</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, C World!\n");
+    return 0;
+}</code></pre>
+        <p>Output:</p>
+        <pre><code>Hello, C World!</code></pre>
+            </div>
+
+        </div>
+
+
+        <div class="slide">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info">
+                <p><strong>Ready to embark on your C programming journey? Dive into the world of C with confidence and curiosity!</strong></p>
+            </div>
+
+        </div>
+        
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+        </div>
+    </div>
+</div>
+<div class="play-button">
+    <button onclick="window.location.href='unit1'">Play</button>
+  </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -48,16 +48,13 @@ body {
 
 .Navbar h1 {
   margin: 0; /* Remove default margin */
-  color: #8A4040;
+  color: white;
   font-size: 2rem; /* Increased font size for heading */
   font-weight: bold; /* Add bold font weight for emphasis */
   position: relative;
   left: 120px;
   top: 10px;
   transition: 0.5s;
-}
-.Navbar h1:hover{
-  transform: scale(1.2);
 }
 
 .Navbar ul {
@@ -78,6 +75,7 @@ body {
   color: white;
   text-align: center;
   text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 12px 18px; /* Increased padding for better clickability */
   border-radius: 25px; /* Add border radius for rounded corners */
   transition: background-color 0.3s ease; /* Add transition for background color change */
@@ -86,7 +84,7 @@ body {
 }
 
 .Navbar ul li:hover {
-  background-color: #8A4040; /* Darken background color on hover */
+  background-color: #ff6600; /* Darken background color on hover */
   cursor: pointer;
 }
 .msg {

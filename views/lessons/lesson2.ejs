@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identifiers in C</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+        
+
+
+        <div class="slide active">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>What are Identifiers?</h1>
+        <p>In the world of C programming, identifiers are like the names you give to things. Just like naming your pet or your favorite book, identifiers are names used to identify variables, functions, or any other user-defined item in your code. Think of them as the labels that help you organize and make sense of your program.</p>
+        <p>Let's imagine you're building a virtual pet game in C. You might use identifiers like <code>petName</code>, <code>hungerLevel</code>, or <code>playWithPet()</code> to represent different aspects of your pet and actions you can take.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Rules for Naming Identifiers</h1>
+        <ul>
+            <li><strong>Start with a Letter or Underscore:</strong> Identifiers must begin with a letter (uppercase or lowercase) or an underscore (_).</li>
+            <p>Example: <code>_score</code>, <code>playerName</code></p>
+
+            <li><strong>Use Letters, Digits, and Underscores:</strong> After the first character, identifiers can contain letters, digits, or underscores.</li>
+            <p>Example: <code>score1</code>, <code>player_age</code></p>
+
+            <li><strong>Be Case-Sensitive:</strong> Identifiers in C are case-sensitive.</li>
+            <p>Example: <code>count</code>, <code>Count</code>, and <code>COUNT</code> are considered different identifiers.</p>
+
+                   
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/2.jpg" alt="">
+            <div class="info">
+
+            <li><strong>Avoid Reserved Keywords:</strong> Certain words, known as keywords, are reserved for specific purposes in C and cannot be used as identifiers.</li>
+            <p>Example: You can't name your variable <code>int</code> or <code>while</code>.</p>
+
+            <li><strong>Avoid Special Characters:</strong> Identifiers should not contain special characters such as @, $, %, etc.</li>
+            <p>Example: <code>totalAmount</code>, <code>userScore</code> are valid identifiers, while <code>total@Amount</code>, <code>user$Score</code> are not.</p>
+        </ul>
+        <p>Following these rules ensures that your identifiers are easy to understand and work seamlessly within your program.</p>
+        
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/3.jpg" alt="">
+            <div class="info">
+        
+        <h1>Examples of Valid Identifiers</h1>
+        <pre><code>int playerScore;
+double averageGrade;
+void printMessage();
+int _count;
+char studentName;</code></pre>
+        
+        </section>
+
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+        
+        
+        <h1>Examples of Invalid Identifiers</h1>
+        <pre><code>int 123abc; // Starts with a digit
+float myGrade; // Contains hyphen
+void while(); // Reserved keyword
+double average grade; // Contains space</code></pre>
+        <p class="notice">Notice how the invalid identifiers violate the rules we've discussed. It's essential to stick to the guidelines to avoid errors and maintain code clarity.</p>
+        </section>
+
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/1.jpg" alt="">
+            <div class="info">
+        
+    <section class="content">
+        <p><strong>Understanding identifiers is just the beginning of your journey into the world of C programming. Practice using meaningful names, and always strive for clear and maintainable code!</strong></p>
+            </div>
+
+        </div>
+        
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+        </div>
+    </div>
+
+</div>
+<div class="play-button">
+    <button onclick="window.location.href='unit1'">Play</button>
+  </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

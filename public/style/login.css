@@ -139,7 +139,7 @@ body {
 
 .admin {
     width: 100%;
-    padding: 15px;
+    padding: 7px;
     background: #2F9CF4;
     color: #ffffff;
     border: none;
@@ -148,7 +148,9 @@ body {
     transition: background-color 0.3s ease;
     text-decoration: none;
     position: relative;
-    top: 20px;
+    top: 15px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .admin:hover {

@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="style/footer.css">
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/build/player/lottie.min.js"></script>
+<link rel="shortcut icon" href="assets/letter-c.png" type="image/x-icon">
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -261,7 +262,7 @@
 						  <% if (user.level === 'Apprentice' || user.level === 'Beginner') { %>
 							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
 						<% } else { %>
-							<button onclick="window.location.href='/unit1'" class="btn" id="c-2">Continue</button>
+							<button onclick="window.location.href='/unit3'" class="btn" id="c-2">Continue</button>
 						<% } %> 
 						
                 
@@ -275,34 +276,28 @@
 							<div class="progress-container">
 							  <h5>Unit 04: Array / String</h5>
 							  <div class="progress-bar">
-								<% if (user.position - 45 === 1) { %>
-									<span data-width="6%"></span>
-								<% } else if (user.position - 45 === 2) { %>
-									<span data-width="12%"></span>
-								<% } else if (user.position - 45 === 3) { %>
-									<span data-width="18%"></span>
-								<% } else if (user.position - 45 === 4) { %>
-									<span data-width="24%"></span>
+								<% if (user.position - 45 === 4) { %>
+									<span data-width="8%"></span>
 								<% } else if (user.position - 45 === 5) { %>
-									<span data-width="30%"></span>
+									<span data-width="16%"></span>
 								<% } else if (user.position - 45 === 6) { %>
-									<span data-width="36%"></span>
+									<span data-width="24%"></span>
 								<% } else if (user.position - 45 === 7) { %>
-									<span data-width="42%"></span>
+									<span data-width="32%"></span>
 								<% } else if (user.position - 45 === 8) { %>
-									<span data-width="48%"></span>
+									<span data-width="40%"></span>
 								<% } else if (user.position - 45 === 9) { %>
-									<span data-width="54%"></span>
+									<span data-width="48%"></span>
 								<% } else if (user.position - 45 === 10) { %>
-									<span data-width="60%"></span>
+									<span data-width="56%"></span>
 								<% } else if (user.position - 45 === 11) { %>
-									<span data-width="66%"></span>
+									<span data-width="64%"></span>
 								<% } else if (user.position - 45 === 12) { %>
 									<span data-width="72%"></span>
 								<% } else if (user.position - 45 === 13) { %>
-									<span data-width="78%"></span>
+									<span data-width="80%"></span>
 								<% } else if (user.position - 45 === 14) { %>
-									<span data-width="84%"></span>
+									<span data-width="88%"></span>
 								<% } else if (user.position - 45 >= 15) { %>
 									<span data-width="100%"></span>
 								<% } %>
@@ -316,7 +311,7 @@
                         <% if ( user.level === 'Journeyman' || user.level === 'Apprentice' || user.level === 'Beginner') { %>
 							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
 						<% } else { %>
-							<button class="btn" id="c-2">Continue</button>
+							<button class="btn" id="c-2" onclick="window.location.href='/unit4'" >Continue</button>
 						<% } %>
 					</div>
 					<div class="slider-card color5">
@@ -329,34 +324,22 @@
 							  <h5>Unit 05: File Handling</h5>
 							  <div class="progress-bar">
 								<% if (user.position - 60 === 1) { %>
-									<span data-width="6%"></span>
+									<span data-width="10%"></span>
 								<% } else if (user.position - 60 === 2) { %>
-									<span data-width="12%"></span>
+									<span data-width="20%"></span>
 								<% } else if (user.position - 60 === 3) { %>
-									<span data-width="18%"></span>
-								<% } else if (user.position - 60 === 4) { %>
-									<span data-width="24%"></span>
-								<% } else if (user.position - 60 === 5) { %>
 									<span data-width="30%"></span>
+								<% } else if (user.position - 60 === 4) { %>
+									<span data-width="40%"></span>
+								<% } else if (user.position - 60 === 5) { %>
+									<span data-width="50%"></span>
 								<% } else if (user.position - 60 === 6) { %>
-									<span data-width="36%"></span>
-								<% } else if (user.position - 60 === 7) { %>
-									<span data-width="42%"></span>
-								<% } else if (user.position - 60 === 8) { %>
-									<span data-width="48%"></span>
-								<% } else if (user.position - 60 === 9) { %>
-									<span data-width="54%"></span>
-								<% } else if (user.position - 60 === 10) { %>
 									<span data-width="60%"></span>
-								<% } else if (user.position - 60 === 11) { %>
-									<span data-width="66%"></span>
-								<% } else if (user.position - 60 === 12) { %>
-									<span data-width="72%"></span>
-								<% } else if (user.position - 60 === 13) { %>
-									<span data-width="78%"></span>
-								<% } else if (user.position - 60 === 14) { %>
-									<span data-width="84%"></span>
-								<% } else if (user.position - 60 >= 15) { %>
+								<% } else if (user.position - 60 === 7) { %>
+									<span data-width="70%"></span>
+								<% } else if (user.position - 60 === 8) { %>
+									<span data-width="80%"></span>
+								<% } else if (user.position - 60 === 9) { %>
 									<span data-width="100%"></span>
 								<% } %>
 								
@@ -369,7 +352,7 @@
                         <% if (user.level === 'Veteran' || user.level === 'Journeyman' || user.level === 'Apprentice' || user.level === 'Beginner') { %>
 							<button onclick="LockedSection()" class="btn" id="c-2"><i class="bx bxs-lock-alt"></i>Continue</button>
 						<% } else { %>
-							<button onclick="window.location.href='/unit1'" class="btn" id="c-2">Continue</button>
+							<button onclick="window.location.href='/unit5'" class="btn" id="c-2">Continue</button>
 						<% } %>
 					 </div> 
 				</div>

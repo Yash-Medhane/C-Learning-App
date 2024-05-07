@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case Statement in C</title>
+    <link rel="stylesheet" href="style/lesson1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="slider">
+    
+
+        <div class="slide active">
+            <img src="assets/lg.jpg" alt="">
+            <div class="info">
+                <h1>Understanding Switch Case Functionality</h1>
+        <p>The switch case statement in C is used for structured decision-mak ing. It evaluates the value of an expression and compares it with various cases. When a match is found, the corresponding block of code is executed.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                <h1>Syntax Mastery</h1>
+        <pre><code>switch (expression) {
+    case constant1:
+        // Code block to execute if expression equals constant1
+        break;
+    case constant2:
+        // Code block to execute if expression equals constant2
+        break;
+    // More case statements...
+    default:
+        // Code block to execute if expression doesn't match any case
+}</code></pre>
+        
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/or.jpg" alt="">
+            <div class="info">
+                
+        <p>The switch statement starts with the keyword <code>switch</code>, followed by an expression in parentheses. Inside the curly braces, each case is defined with the keyword <code>case</code> followed by a constant value. The <code>break</code> statement is used to exit the switch block after a case is executed. The <code>default</code> case is optional and is executed if none of the cases match the expression.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/1.jpg" alt="">
+            <div class="info">
+                <h1>Handling Default Cases</h1>
+        <p>The <code>default</code> case is executed when none of the other cases match the expression. It provides a fallback option for handling unexpected or unspecified values.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+            <img src="assets/2.jpg" alt="">
+            <div class="info">
+                <h1>Value Comparison Limitations</h1>
+        <p>The expression in a switch statement can only be of integer or character type. It cannot be a floating-point number or a string. Additionally, switch cases cannot perform relational or logical comparisons; they only match exact values.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/3.jpg" alt="">
+            <div class="info">
+                <h1>Structured Decision Making</h1>
+        <p>The switch case statement facilitates structured decision-making by providing a concise way to handle multiple possible conditions based on the value of an expression.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info">
+                <h1>Example</h1>
+                <pre><code>int day = 3;
+        switch (day) {
+            case 1:
+                printf("Monday");
+                break;
+            case 2:
+                printf("Tuesday");
+                break;
+            case 3:
+                printf("Wednesday");
+                break;
+            default:
+                printf("Invalid day");
+        }</code></pre>
+                
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/bp.jpg" alt="">
+            <div class="info">
+                <p>In this example, the switch statement evaluates the value of the variable <code>day</code> and executes the corresponding code block based on its value.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="assets/1.jpg" alt="">
+            <div class="info">
+                <p><strong>The switch case statement is a powerful tool for implementing structured decision-making in C, but it's important to understand its syntax and limitations to use it effectively.</strong></p>
+            </div>
+        </div>
+
+
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+        </div>
+    </div>
+
+</div>
+<div class="play-button">
+    <button onclick="window.location.href='unit2'">Play</button>
+  </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nextBtn = document.querySelector(".next-btn");
+            const prevBtn = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slide");
+            const slideIcons = document.querySelectorAll(".slide-icon");
+            let slideNumber = 0;
+
+            const showSlide = (n) => {
+                slides.forEach((slide) => {
+                    slide.classList.remove("active");
+                });
+                slideIcons.forEach((icon) => {
+                    icon.classList.remove("active");
+                });
+
+                if (n < 0) {
+                    slideNumber = slides.length - 1;
+                } else if (n >= slides.length) {
+                    slideNumber = 0;
+                } else {
+                    slideNumber = n;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            };
+
+            nextBtn.addEventListener("click", () => {
+                showSlide(slideNumber + 1);
+            });
+
+            prevBtn.addEventListener("click", () => {
+                showSlide(slideNumber - 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
