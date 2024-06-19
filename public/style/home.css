@@ -387,5 +387,49 @@ body, html {
       bottom: 80px;
       left: 30px;
     }
+    @media screen and (max-width: 1024px) and (min-width: 768px) {
+      body{
+        background-color: #1f1f1f;
+      }
+      .main-container > *:not(.warning) {
+        display: none;
+      }
+
+      .warning {
+        display: flex;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 90%;
+        font-size: 30px;
+      }
+      
+    }
+
+    /* Media query for mobile devices */
+    @media screen and (max-width: 767px) {
+      body{
+        background-color: #1f1f1f;
+      }
+      .main-container > *:not(.warning) {
+        display: none;
+      }
+
+      .warning {
+        display: flex;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 90%;
+        font-size: 30px;
+      }
+      
+    }
+
+    .warning {
+      display: none;
+    }
   
   

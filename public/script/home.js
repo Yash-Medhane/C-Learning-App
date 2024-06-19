@@ -120,3 +120,12 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     scrollToSection('#contact-section');
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+      document.querySelector('.warning').style.display = 'flex';
+      document.querySelectorAll('button').forEach(button => {
+        button.disabled = true;
+      });
+    }
+  });
